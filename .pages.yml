@@ -1,0 +1,483 @@
+media:
+  input: public/images
+  output: /images
+  categories: [image]
+  rename: safe
+
+components:
+  link:
+    type: object
+    fields:
+      - name: label
+        type: string
+      - name: href
+        label: Link
+        type: string
+        description: A page path (/blog), a section on the home page (#pricing) or a full URL.
+
+content:
+  - name: home
+    label: Home page
+    type: file
+    path: content/home.json
+    format: json
+    fields:
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: eyebrow
+            label: Small label above the title
+            type: string
+          - name: title
+            type: string
+            required: true
+          - name: subtitle
+            type: text
+          - name: primaryCta
+            label: Primary button
+            component: link
+          - name: secondaryCta
+            label: Secondary button
+            component: link
+          - name: image
+            type: image
+          - name: imageAlt
+            label: Image description
+            type: string
+            description: Describes the image for screen readers and search engines.
+          - name: stats
+            label: Key numbers
+            type: object
+            list:
+              max: 4
+              collapsible:
+                collapsed: true
+                summary: "{value} {label}"
+            fields:
+              - name: value
+                type: string
+              - name: label
+                type: string
+
+      - name: logos
+        label: Logo strip
+        type: object
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+          - name: title
+            type: string
+          - name: items
+            label: Company names
+            type: string
+            list: true
+
+      - name: features
+        label: Features
+        type: object
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+          - name: eyebrow
+            label: Small label above the title
+            type: string
+          - name: title
+            type: string
+          - name: subtitle
+            type: text
+          - name: items
+            label: Features
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: icon
+                type: select
+                options:
+                  values:
+                    - { name: shield, label: Shield }
+                    - { name: photo, label: Photo }
+                    - { name: live-photo, label: Live Photo }
+                    - { name: folder, label: Folder }
+                    - { name: usb, label: USB }
+                    - { name: cloud-off, label: No cloud }
+                    - { name: gauge, label: Speed }
+                    - { name: layout, label: Board }
+                    - { name: users, label: People }
+                    - { name: bolt, label: Lightning }
+                    - { name: chart, label: Chart }
+                    - { name: lock, label: Lock }
+                    - { name: device, label: Phone }
+                    - { name: heart, label: Heart }
+                    - { name: rocket, label: Rocket }
+                    - { name: clock, label: Clock }
+                    - { name: leaf, label: Leaf }
+                    - { name: palette, label: Palette }
+                    - { name: sparkles, label: Sparkles }
+              - name: title
+                type: string
+              - name: description
+                type: text
+
+      - name: showcase
+        label: How it works
+        type: object
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+          - name: eyebrow
+            label: Small label above the title
+            type: string
+          - name: title
+            type: string
+          - name: items
+            label: Steps
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                type: string
+              - name: text
+                type: text
+              - name: image
+                type: image
+              - name: imageAlt
+                label: Image description
+                type: string
+              - name: bullets
+                type: string
+                list: true
+
+      - name: testimonials
+        label: Testimonials
+        type: object
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+          - name: eyebrow
+            label: Small label above the title
+            type: string
+          - name: title
+            type: string
+          - name: items
+            label: Quotes
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: quote
+                type: text
+              - name: name
+                type: string
+              - name: role
+                type: string
+              - name: avatar
+                label: Photo
+                type: image
+                description: Optional. Initials are shown when empty.
+
+      - name: pricing
+        label: Pricing
+        type: object
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+          - name: eyebrow
+            label: Small label above the title
+            type: string
+          - name: title
+            type: string
+          - name: subtitle
+            type: text
+          - name: currency
+            type: string
+          - name: note
+            label: Small print under the plans
+            type: text
+          - name: plans
+            type: object
+            list:
+              max: 3
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                type: string
+              - name: description
+                type: text
+              - name: price
+                type: number
+                description: 0 shows "Free".
+              - name: priceSuffix
+                label: Text after the price
+                type: string
+                description: For example "one-time" or "/ month".
+              - name: badge
+                label: Badge
+                type: string
+                description: Optional, for example "Launch price".
+              - name: features
+                type: string
+                list: true
+              - name: highlighted
+                label: Highlight this plan
+                type: boolean
+              - name: ctaLabel
+                label: Button label
+                type: string
+              - name: ctaHref
+                label: Button link
+                type: string
+
+      - name: faq
+        label: FAQ
+        type: object
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+          - name: eyebrow
+            label: Small label above the title
+            type: string
+          - name: title
+            type: string
+          - name: items
+            label: Questions
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{question}"
+            fields:
+              - name: question
+                type: string
+              - name: answer
+                type: text
+
+      - name: blog
+        label: Latest blog posts
+        type: object
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+          - name: eyebrow
+            label: Small label above the title
+            type: string
+          - name: title
+            type: string
+          - name: count
+            label: Number of posts to show
+            type: number
+            options:
+              min: 1
+              max: 6
+
+      - name: cta
+        label: Call to action banner
+        type: object
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+          - name: title
+            type: string
+          - name: text
+            type: text
+          - name: buttonLabel
+            type: string
+          - name: buttonHref
+            label: Button link
+            type: string
+
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - name: enabled
+            label: Show this section
+            type: boolean
+          - name: eyebrow
+            label: Small label above the title
+            type: string
+          - name: title
+            type: string
+          - name: text
+            type: text
+          - name: email
+            type: string
+          - name: phone
+            type: string
+          - name: address
+            type: string
+          - name: buttonLabel
+            label: Form button label
+            type: string
+          - name: successMessage
+            label: Message shown after sending the form
+            type: text
+
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: content/posts
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      fields: [title, date, author]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: author
+        type: string
+      - name: excerpt
+        label: Summary
+        type: text
+        description: Shown on the blog overview and in search results.
+      - name: cover
+        label: Cover image
+        type: image
+      - name: body
+        label: Content
+        type: rich-text
+        options:
+          format: markdown
+
+  - name: site
+    label: Site settings
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: name
+        label: Site name
+        type: string
+        required: true
+      - name: logo
+        type: image
+        description: Optional square mark shown next to the site name. The first letter is shown when empty.
+      - name: primaryColor
+        label: Brand colour
+        type: select
+        options:
+          values:
+            - { name: mahogany, label: Mahogany (Reperoo) }
+            - { name: indigo, label: Indigo }
+            - { name: blue, label: Blue }
+            - { name: cyan, label: Cyan }
+            - { name: teal, label: Teal }
+            - { name: green, label: Green }
+            - { name: orange, label: Orange }
+            - { name: red, label: Red }
+            - { name: pink, label: Pink }
+            - { name: grape, label: Grape }
+            - { name: violet, label: Violet }
+      - name: seo
+        label: Search engines
+        type: object
+        fields:
+          - name: title
+            type: string
+          - name: description
+            type: text
+      - name: announcement
+        label: Announcement bar
+        type: object
+        fields:
+          - name: enabled
+            label: Show the announcement bar
+            type: boolean
+          - name: text
+            type: string
+          - name: linkLabel
+            type: string
+          - name: href
+            label: Link
+            type: string
+      - name: navigation
+        label: Menu
+        type: object
+        list:
+          max: 6
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            type: string
+          - name: href
+            label: Link
+            type: string
+      - name: navCta
+        label: Menu button
+        component: link
+      - name: footer
+        type: object
+        fields:
+          - name: text
+            type: text
+          - name: columns
+            label: Link columns
+            type: object
+            list:
+              max: 4
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                type: string
+              - name: links
+                type: object
+                list: true
+                fields:
+                  - name: label
+                    type: string
+                  - name: href
+                    label: Link
+                    type: string
+          - name: socials
+            label: Social media
+            type: object
+            list: true
+            fields:
+              - name: platform
+                type: select
+                options:
+                  values:
+                    - { name: linkedin, label: LinkedIn }
+                    - { name: instagram, label: Instagram }
+                    - { name: facebook, label: Facebook }
+                    - { name: x, label: X }
+                    - { name: youtube, label: YouTube }
+              - name: href
+                label: Link
+                type: string
+          - name: copyright
+            type: string
