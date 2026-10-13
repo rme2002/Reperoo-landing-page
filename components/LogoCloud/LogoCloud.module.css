@@ -1,0 +1,21 @@
+.section {
+  padding: 2.5rem 0;
+  border-block: 1px solid var(--mantine-color-default-border);
+}
+
+.title {
+  margin-bottom: 1.25rem;
+  color: var(--mantine-color-dimmed);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.logo {
+  color: var(--mantine-color-dimmed);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  opacity: 0.75;
+}
