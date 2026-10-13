@@ -13,7 +13,7 @@ npm run dev
 
 Open http://localhost:3000. Edits to files in `content/` show up on refresh.
 
-Checks: `npm run typecheck`, `npm run lint`, `npm run build`.
+Checks: `npm run typecheck`, `npm run lint`, `npm run build`. The build writes the static site to `out/`.
 
 ## What is editable
 
@@ -27,17 +27,31 @@ Uploaded images go to `public/images/`. The field definitions are in [`.pages.ym
 
 The **Show editable areas** button on the site outlines each region and names the CMS entry that controls it.
 
+## Deploy to GitHub Pages
+
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds the site and publishes it on every push to `main`. One-time setup:
+
+1. In the repository on GitHub, open **Settings → Pages** and set **Source** to **GitHub Actions**.
+2. Open **Actions → Deploy to GitHub Pages** and run it (or push to `main`).
+
+The site is served from https://romnickchurned.github.io/Reperoo-landing-page/. The workflow passes that `/Reperoo-landing-page` prefix to the build as `PAGES_BASE_PATH`; with a custom domain the prefix is empty and nothing else changes.
+
+To check a production build locally, under the same prefix:
+
+```bash
+PAGES_BASE_PATH=/Reperoo-landing-page npm run build
+```
+
 ## Connect Pages CMS
 
-1. Push this repo to GitHub.
-2. Go to https://app.pagescms.org, sign in with GitHub and install the Pages CMS GitHub App on this repository.
-3. Open the repository and branch. The sidebar shows *Home page*, *Blog posts* and *Site settings*.
+1. Go to https://app.pagescms.org, sign in with GitHub and install the Pages CMS GitHub App on this repository.
+2. Open the repository and branch. The sidebar shows *Home page*, *Blog posts* and *Site settings*.
 
-Each save in Pages CMS is a commit to the branch. To see changes on a live site, deploy the repo to a host that rebuilds on push (Vercel, Netlify, Cloudflare Pages); locally, `git pull` and refresh.
+Each save in Pages CMS is a commit to `main`, which redeploys the site within a few minutes. Locally, `git pull` and refresh.
 
 Customers without a GitHub account can be invited by email as collaborators. They can edit content and media, but not `.pages.yml` or other collaborators.
 
 ## Notes
 
 - The waitlist form validates input but doesn't send anything; there is no backend.
-- The site is fully static (`next build` prerenders every page).
+- The site is fully static: `next build` prerenders every page, so there is no server to run.
