@@ -4,6 +4,7 @@ import React from "react";
 import type { Metadata, Viewport } from "next";
 import { MantineProvider, mantineHtmlProps } from "@mantine/core";
 import { AnnouncementBar } from "@/components/AnnouncementBar/AnnouncementBar";
+import { BackToTop } from "@/components/BackToTop";
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
 import { site } from "@/lib/content";
@@ -71,6 +72,7 @@ export default function RootLayout({
           />
           <main>{children}</main>
           <Footer />
+          <BackToTop />
         </MantineProvider>
       </body>
     </html>
