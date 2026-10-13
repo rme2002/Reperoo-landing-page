@@ -42,6 +42,13 @@ export default function RootLayout({
           data-mantine-script
           dangerouslySetInnerHTML={{ __html: colorSchemeScript }}
         />
+        <noscript>
+          <style>
+            {
+              "[data-reveal] { opacity: 1 !important; transform: none !important; }"
+            }
+          </style>
+        </noscript>
         <link rel="shortcut icon" href="/favicon.svg" />
       </head>
       <body>

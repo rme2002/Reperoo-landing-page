@@ -1,0 +1,36 @@
+.section {
+  padding: clamp(4rem, 9vw, 7rem) 0;
+}
+
+.soft {
+  composes: section;
+  background: var(--lp-bg-soft);
+}
+
+.heading {
+  max-width: 680px;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--mantine-primary-color-filled);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  color: var(--mantine-color-dimmed);
+  font-size: 1.1rem;
+  line-height: 1.65;
+}

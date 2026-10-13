@@ -40,6 +40,27 @@ main section[id] {
   scroll-margin-top: 5rem;
 }
 
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 600ms ease,
+    transform 600ms ease;
+}
+
+[data-reveal="visible"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .mantine-Container-root {
   padding-inline: clamp(1rem, 4vw, 2rem);
 }
