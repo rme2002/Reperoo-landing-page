@@ -1,0 +1,62 @@
+.footer {
+  border-top: 1px solid var(--mantine-color-default-border);
+  background: var(--lp-bg-soft);
+}
+
+.inner {
+  padding: 3.5rem 0 2.5rem;
+  display: grid;
+  grid-template-columns: 2fr repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--mantine-color-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brandMark {
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  background: var(--mantine-primary-color-filled);
+  color: var(--mantine-primary-color-contrast);
+  font-size: 0.9rem;
+}
+
+.links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.link {
+  color: var(--mantine-color-dimmed);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--mantine-color-text);
+}
+
+.bottom {
+  padding: 1.25rem 0 1.75rem;
+  border-top: 1px solid var(--mantine-color-default-border);
+}
+
+@media (max-width: 760px) {
+  .inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about {
+    grid-column: 1 / -1;
+  }
+}
