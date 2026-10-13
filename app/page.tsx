@@ -1,6 +1,8 @@
+import { Faq } from "@/components/Faq/Faq";
 import { Features } from "@/components/Features/Features";
 import { Hero } from "@/components/Hero/Hero";
 import { LogoCloud } from "@/components/LogoCloud/LogoCloud";
+import { Pricing } from "@/components/Pricing/Pricing";
 import { Showcase } from "@/components/Showcase/Showcase";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
 import { home } from "@/lib/content";
@@ -15,6 +17,8 @@ export default function HomePage() {
       {home.testimonials.enabled && (
         <Testimonials testimonials={home.testimonials} />
       )}
+      {home.pricing.enabled && <Pricing pricing={home.pricing} />}
+      {home.faq.enabled && <Faq faq={home.faq} />}
     </>
   );
 }
