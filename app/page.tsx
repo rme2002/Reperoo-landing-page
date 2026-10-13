@@ -1,3 +1,5 @@
+import { CallToAction } from "@/components/CallToAction/CallToAction";
+import { Contact } from "@/components/Contact/Contact";
 import { Faq } from "@/components/Faq/Faq";
 import { Features } from "@/components/Features/Features";
 import { Hero } from "@/components/Hero/Hero";
@@ -19,6 +21,8 @@ export default function HomePage() {
       )}
       {home.pricing.enabled && <Pricing pricing={home.pricing} />}
       {home.faq.enabled && <Faq faq={home.faq} />}
+      {home.cta.enabled && <CallToAction cta={home.cta} />}
+      {home.contact.enabled && <Contact contact={home.contact} />}
     </>
   );
 }
