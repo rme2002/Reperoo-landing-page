@@ -1,0 +1,234 @@
+{
+  "hero": {
+    "eyebrow": "For USB-C iPhones · Coming to the App Store",
+    "title": "Your photos and videos, straight to your SSD.",
+    "subtitle": "Plug a USB-C SSD into your iPhone, tap once, and Reperoo copies your originals to the drive. Verified, private, and without a computer or the cloud in between.",
+    "primaryCta": {
+      "label": "Join the waitlist",
+      "href": "#contact"
+    },
+    "secondaryCta": {
+      "label": "See how it works",
+      "href": "#how-it-works"
+    },
+    "image": "/images/reperoo-hero.svg",
+    "imageAlt": "An iPhone copying photos to a USB-C SSD in Reperoo",
+    "stats": [
+      {
+        "value": "3",
+        "label": "checks before a delete"
+      },
+      {
+        "value": "0",
+        "label": "accounts or uploads"
+      },
+      {
+        "value": "1",
+        "label": "purchase, no subscription"
+      }
+    ]
+  },
+  "logos": {
+    "enabled": true,
+    "title": "Made for USB-C iPhones and the formats you shoot",
+    "items": [
+      "iPhone 15",
+      "iPhone 16",
+      "iPhone 17",
+      "USB-C SSDs",
+      "HEIC & JPEG",
+      "RAW & ProRAW",
+      "HEVC & ProRes",
+      "Live Photos"
+    ]
+  },
+  "features": {
+    "enabled": true,
+    "eyebrow": "Features",
+    "title": "One job, done properly",
+    "subtitle": "Get your photos and videos off your iPhone and onto a drive you own, without trusting a cloud or hunting for a laptop.",
+    "items": [
+      {
+        "icon": "usb",
+        "title": "No computer needed",
+        "description": "Phone to SSD, directly. Offload a full camera roll on a trip, on the train, wherever you are."
+      },
+      {
+        "icon": "lock",
+        "title": "Fully local and private",
+        "description": "No account, no server, no tracking. Your photos are read on your iPhone and written to your drive, nowhere else."
+      },
+      {
+        "icon": "shield",
+        "title": "Verified before it deletes",
+        "description": "Move mode removes an original only after its copy has passed three independent checks on the drive."
+      },
+      {
+        "icon": "photo",
+        "title": "Originals, untouched",
+        "description": "HEIC, RAW, ProRes and Live Photo pairs land on the drive exactly as shot, with their metadata."
+      },
+      {
+        "icon": "folder",
+        "title": "Plain files, anywhere",
+        "description": "Original filenames, straight into the folder you pick. Open them on any Mac or PC, no library needed."
+      },
+      {
+        "icon": "gauge",
+        "title": "Built for big libraries",
+        "description": "Live speed and time left, pause and resume, and the screen stays awake until the last file is done."
+      }
+    ]
+  },
+  "showcase": {
+    "enabled": true,
+    "eyebrow": "How it works",
+    "title": "Three taps from full phone to free space",
+    "items": [
+      {
+        "title": "Plug in your SSD",
+        "text": "Connect a USB-C SSD and pick a folder on it. Reperoo shows the drive and its free space, and stops you before a read-only or full drive can cause trouble.",
+        "image": "/images/showcase-connect.svg",
+        "imageAlt": "Reperoo's home screen with a connected drive",
+        "bullets": [
+          "Free space shown before every run",
+          "Read-only drives blocked up front",
+          "Remembers the folder you picked"
+        ]
+      },
+      {
+        "title": "Choose what to copy",
+        "text": "Everything, one album, the last week, or just a handful of shots. Photos you've already copied to this folder are marked, so you never have to wonder.",
+        "image": "/images/showcase-select.svg",
+        "imageAlt": "Selecting photos in Reperoo",
+        "bullets": [
+          "Filter by album, media type and date",
+          "Already-copied badges",
+          "Sort by newest, oldest, largest or longest"
+        ]
+      },
+      {
+        "title": "Copy, or Move to free up space",
+        "text": "Copy keeps everything on your iPhone. Move copies and verifies every file, then deletes the originals through iOS's own confirmation. Deleted items stay in Recently Deleted for 30 days.",
+        "image": "/images/showcase-complete.svg",
+        "imageAlt": "Reperoo's completion screen after a Move",
+        "bullets": [
+          "SHA-256 checked on write and on read-back",
+          "Only verified files are ever deleted",
+          "Safe to disconnect when it says so"
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "enabled": true,
+    "eyebrow": "Who it's for",
+    "title": "Made for people who shoot a lot",
+    "items": [
+      {
+        "quote": "My storage is full again and I don't want to pay for iCloud every month just to keep my photos.",
+        "name": "The storage-strapped",
+        "role": "Offload the camera roll and get the space back",
+        "avatar": "/images/persona-storage.svg"
+      },
+      {
+        "quote": "I shoot 4K and ProRes. I need the untouched originals on an SSD I can edit from, not recompressed copies.",
+        "name": "The creator",
+        "role": "Originals and metadata, unchanged",
+        "avatar": "/images/persona-creator.svg"
+      },
+      {
+        "quote": "Two weeks away, no laptop, and my phone is full halfway through the trip.",
+        "name": "The traveller",
+        "role": "Empty the phone mid-trip and keep shooting",
+        "avatar": "/images/persona-traveller.svg"
+      }
+    ]
+  },
+  "pricing": {
+    "enabled": true,
+    "eyebrow": "Pricing",
+    "title": "Buy it once. It's yours.",
+    "subtitle": "No subscription, no ads, no tiers. One purchase unlocks everything, on your Apple ID, for good.",
+    "currency": "€",
+    "note": "",
+    "plans": [
+      {
+        "name": "Reperoo",
+        "description": "Everything Reperoo does, for one price.",
+        "price": 3.5,
+        "priceSuffix": "one-time",
+        "badge": "Pay once",
+        "features": [
+          "Unlimited photos and videos",
+          "Copy and Move modes",
+          "Full verification on every file",
+          "Restore your purchase on any of your devices",
+          "No subscription, no ads"
+        ],
+        "highlighted": true,
+        "ctaLabel": "Join the waitlist",
+        "ctaHref": "#contact"
+      }
+    ]
+  },
+  "faq": {
+    "enabled": true,
+    "eyebrow": "FAQ",
+    "title": "Questions, answered",
+    "items": [
+      {
+        "question": "Which iPhones does Reperoo work with?",
+        "answer": "Reperoo is built for iPhones with a USB-C port: iPhone 15 and later. Support for Lightning iPhones with an adapter is still being looked at."
+      },
+      {
+        "question": "Which drives can I use?",
+        "answer": "Most USB-C SSDs and flash drives. Format the drive as exFAT on a computer first: FAT32 can't hold files over 4 GB, and Reperoo can't write to a read-only drive."
+      },
+      {
+        "question": "Does Reperoo upload my photos anywhere?",
+        "answer": "No. There's no account, no server and no tracking. Your photos are read on your iPhone and written to your drive, and nowhere else."
+      },
+      {
+        "question": "How does Move keep my photos safe?",
+        "answer": "Each file is hashed while it's written, read back from the drive and hashed again, then checked once more right before anything is deleted. Only files that pass all three are deleted, through iOS's own confirmation, and they stay in Recently Deleted for 30 days."
+      },
+      {
+        "question": "Do I get my original files?",
+        "answer": "Yes. Reperoo copies the originals (HEIC, JPEG, RAW, HEVC and ProRes) with their metadata, and keeps both halves of a Live Photo together."
+      },
+      {
+        "question": "What if a file with the same name is already on the drive?",
+        "answer": "You choose, just like in Finder: keep both, overwrite or skip. Reperoo never overwrites a file without asking."
+      },
+      {
+        "question": "Is it a subscription?",
+        "answer": "No. Reperoo is a single one-time purchase of €3.50. Pay once and it's yours, with no renewals and no ads."
+      }
+    ]
+  },
+  "blog": {
+    "enabled": true,
+    "eyebrow": "Blog",
+    "title": "Guides and updates",
+    "count": 3
+  },
+  "cta": {
+    "enabled": true,
+    "title": "Free up your iPhone without paying for the cloud.",
+    "text": "Join the waitlist and we'll let you know the day Reperoo lands on the App Store.",
+    "buttonLabel": "Join the waitlist",
+    "buttonHref": "#contact"
+  },
+  "contact": {
+    "enabled": true,
+    "eyebrow": "Waitlist",
+    "title": "Be first in line",
+    "text": "Leave your email and we'll tell you when Reperoo launches. Got a question, or a drive you'd like us to test? Add a message.",
+    "email": "hello@reperoo.example",
+    "phone": "",
+    "address": "",
+    "buttonLabel": "Join the waitlist",
+    "successMessage": "Thanks, you're on the list. We'll email you when Reperoo is on the App Store."
+  }
+}

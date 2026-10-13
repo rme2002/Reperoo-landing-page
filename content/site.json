@@ -1,0 +1,50 @@
+{
+  "name": "Reperoo",
+  "logo": "/images/reperoo-mark.svg",
+  "primaryColor": "mahogany",
+  "seo": {
+    "title": "Reperoo — copy your iPhone photos straight to an SSD",
+    "description": "Copy photos and videos from your iPhone to a USB-C SSD. Verified, private, no computer or cloud needed. Buy it once, keep it forever."
+  },
+  "announcement": {
+    "enabled": true,
+    "text": "Reperoo is coming to the App Store.",
+    "linkLabel": "Join the waitlist",
+    "href": "/#contact"
+  },
+  "navigation": [
+    { "label": "Features", "href": "/#features" },
+    { "label": "How it works", "href": "/#how-it-works" },
+    { "label": "Pricing", "href": "/#pricing" },
+    { "label": "FAQ", "href": "/#faq" },
+    { "label": "Blog", "href": "/blog" }
+  ],
+  "navCta": { "label": "Join the waitlist", "href": "/#contact" },
+  "footer": {
+    "text": "Copy your iPhone's photos and videos straight to an SSD. No computer, no cloud, no subscription.",
+    "columns": [
+      {
+        "title": "Product",
+        "links": [
+          { "label": "Features", "href": "/#features" },
+          { "label": "How it works", "href": "/#how-it-works" },
+          { "label": "Pricing", "href": "/#pricing" },
+          { "label": "FAQ", "href": "/#faq" }
+        ]
+      },
+      {
+        "title": "More",
+        "links": [
+          { "label": "Blog", "href": "/blog" },
+          { "label": "Format your SSD", "href": "/blog/how-to-format-your-ssd-as-exfat" },
+          { "label": "Waitlist", "href": "/#contact" }
+        ]
+      }
+    ],
+    "socials": [
+      { "platform": "instagram", "href": "https://www.instagram.com" },
+      { "platform": "x", "href": "https://x.com" }
+    ],
+    "copyright": "© 2026 Reperoo. All rights reserved."
+  }
+}
