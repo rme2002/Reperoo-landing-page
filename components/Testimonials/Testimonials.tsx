@@ -1,6 +1,7 @@
 import { Avatar, Group, SimpleGrid, Text } from "@mantine/core";
 import { IconQuote } from "@tabler/icons-react";
 import type { HomeContent } from "@/lib/content";
+import { withBasePath } from "@/lib/paths";
 import { Reveal } from "../Reveal";
 import { Section } from "../Section/Section";
 import classes from "./Testimonials.module.css";
@@ -22,7 +23,7 @@ export function Testimonials({
               </Text>
               <Group gap="sm" mt="auto" pt="lg">
                 <Avatar
-                  src={item.avatar || null}
+                  src={item.avatar ? withBasePath(item.avatar) : null}
                   name={item.name}
                   color="initials"
                   radius="xl"

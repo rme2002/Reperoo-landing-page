@@ -9,6 +9,7 @@ import { CmsHintsToggle } from "@/components/CmsHints/CmsHintsToggle";
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
 import { site } from "@/lib/content";
+import { withBasePath } from "@/lib/paths";
 import { buildTheme } from "../theme";
 
 const colorSchemeScript = `
@@ -51,7 +52,7 @@ export default function RootLayout({
             }
           </style>
         </noscript>
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href={withBasePath("/favicon.svg")} />
       </head>
       <body>
         <MantineProvider

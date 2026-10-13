@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/paths";
 
 /** The site logo when one is set in the CMS, otherwise the name's first letter. */
 export function BrandMark({
@@ -15,7 +16,7 @@ export function BrandMark({
   if (logo) {
     return (
       <Image
-        src={logo}
+        src={withBasePath(logo)}
         alt=""
         width={size}
         height={size}

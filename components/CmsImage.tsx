@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/paths";
 
 type CmsImageProps = {
   src: string;
@@ -18,7 +19,7 @@ export function CmsImage({
 }: CmsImageProps) {
   return (
     <Image
-      src={src}
+      src={withBasePath(src)}
       alt={alt}
       fill
       sizes={sizes}

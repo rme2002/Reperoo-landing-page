@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import homeJson from "@/content/home.json";
 import siteJson from "@/content/site.json";
+import { withBasePath } from "./paths";
 
 export type Link = { label: string; href: string };
 
@@ -128,7 +129,9 @@ function readPost(file: string): Post {
     author: data.author,
     excerpt: data.excerpt,
     cover: data.cover,
-    html: marked.parse(content, { async: false }),
+    html: marked
+      .parse(content, { async: false })
+      .replace(/(src|href)="\/(?!\/)/g, `$1="${withBasePath("/")}`),
   };
 }
 
