@@ -19,7 +19,6 @@ export function BrandMark({
         alt=""
         width={size}
         height={size}
-        unoptimized
         style={{ borderRadius: size * 0.24 }}
       />
     );

@@ -23,7 +23,6 @@ export function CmsImage({
       fill
       sizes={sizes}
       priority={priority}
-      unoptimized={src.endsWith(".svg") || /^https?:/.test(src)}
       className={className}
       style={{ objectFit: "cover" }}
     />
