@@ -1,3 +1,7 @@
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
+import { marked } from "marked";
 import homeJson from "@/content/home.json";
 import siteJson from "@/content/site.json";
 
@@ -92,5 +96,57 @@ export type HomeContent = {
   };
 };
 
+export type Post = {
+  slug: string;
+  title: string;
+  date: string;
+  author?: string;
+  excerpt?: string;
+  cover?: string;
+  html: string;
+};
+
 export const site = siteJson as SiteContent;
 export const home = homeJson as HomeContent;
+
+const POSTS_DIR = path.join(process.cwd(), "content/posts");
+
+function toIsoDate(value: unknown) {
+  return value instanceof Date
+    ? value.toISOString().slice(0, 10)
+    : String(value ?? "");
+}
+
+function readPost(file: string): Post {
+  const { data, content } = matter(
+    fs.readFileSync(path.join(POSTS_DIR, file), "utf8"),
+  );
+  return {
+    slug: file.replace(/\.md$/, ""),
+    title: data.title ?? "Untitled",
+    date: toIsoDate(data.date),
+    author: data.author,
+    excerpt: data.excerpt,
+    cover: data.cover,
+    html: marked.parse(content, { async: false }),
+  };
+}
+
+export function getPosts(): Post[] {
+  return fs
+    .readdirSync(POSTS_DIR)
+    .filter((file) => file.endsWith(".md"))
+    .map(readPost)
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getPost(slug: string) {
+  return getPosts().find((post) => post.slug === slug);
+}
+
+export function formatDate(isoDate: string) {
+  const date = new Date(isoDate);
+  return Number.isNaN(date.getTime())
+    ? isoDate
+    : new Intl.DateTimeFormat("en-GB", { dateStyle: "long" }).format(date);
+}

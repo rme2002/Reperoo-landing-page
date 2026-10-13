@@ -1,0 +1,47 @@
+.page {
+  padding: clamp(3rem, 7vw, 5rem) 0 clamp(4rem, 9vw, 7rem);
+}
+
+.intro {
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  letter-spacing: -0.03em;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--mantine-color-dimmed);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--mantine-color-text);
+}
+
+.postTitle {
+  margin-top: 0.5rem;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.cover {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 8;
+  border-radius: 20px;
+  background: var(--lp-bg-soft);
+}
+
+.body {
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
