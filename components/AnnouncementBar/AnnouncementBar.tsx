@@ -21,22 +21,28 @@ export function AnnouncementBar({
   if (dismissed === text) return null;
 
   return (
-    <div className={classes.bar} data-cms="Site settings › Announcement bar">
+    <section
+      className={classes.bar}
+      aria-label="Announcement"
+      data-cms="Site settings › Announcement bar"
+    >
       <p className={classes.content}>
         <span>{text}</span>
         {linkLabel && href && (
           <SiteLink href={href} className={classes.link}>
-            {linkLabel} <IconArrowRight size={14} />
+            {linkLabel}{" "}
+            <IconArrowRight size={16} className="lp-arrow" aria-hidden />
           </SiteLink>
         )}
       </p>
       <CloseButton
-        size="sm"
-        variant="transparent"
+        size="xl"
+        iconSize={16}
+        variant="subtle"
         className={classes.close}
         aria-label="Dismiss announcement"
         onClick={() => setDismissed(text)}
       />
-    </div>
+    </section>
   );
 }
