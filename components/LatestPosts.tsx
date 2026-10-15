@@ -9,9 +9,11 @@ import { Section } from "./Section/Section";
 export function LatestPosts({
   blog,
   posts,
+  soft,
 }: {
   blog: HomeContent["blog"];
   posts: Post[];
+  soft?: boolean;
 }) {
   if (posts.length === 0) return null;
 
@@ -19,7 +21,7 @@ export function LatestPosts({
     <Section
       id="blog"
       cms="Home page › Latest blog posts · posts live in Blog posts"
-      soft
+      soft={soft}
       {...blog}
     >
       <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">

@@ -5,9 +5,15 @@ import { Reveal } from "../Reveal";
 import { Section } from "../Section/Section";
 import classes from "./Features.module.css";
 
-export function Features({ features }: { features: HomeContent["features"] }) {
+export function Features({
+  features,
+  soft,
+}: {
+  features: HomeContent["features"];
+  soft?: boolean;
+}) {
   return (
-    <Section id="features" cms="Home page › Features" {...features}>
+    <Section id="features" cms="Home page › Features" soft={soft} {...features}>
       <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
         {(features.items ?? []).map((feature, index) => {
           const Icon = featureIcon(feature.icon);

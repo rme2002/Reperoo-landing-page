@@ -6,7 +6,13 @@ import { Section } from "../Section/Section";
 import { ContactForm } from "./ContactForm";
 import classes from "./Contact.module.css";
 
-export function Contact({ contact }: { contact: HomeContent["contact"] }) {
+export function Contact({
+  contact,
+  soft,
+}: {
+  contact: HomeContent["contact"];
+  soft?: boolean;
+}) {
   const details = [
     {
       icon: IconMail,
@@ -24,7 +30,7 @@ export function Contact({ contact }: { contact: HomeContent["contact"] }) {
   ].filter((detail) => detail.value);
 
   return (
-    <Section id="contact" cms="Home page › Contact" soft>
+    <Section id="contact" cms="Home page › Contact" soft={soft}>
       <div className={classes.grid}>
         <Reveal>
           {contact.eyebrow && (

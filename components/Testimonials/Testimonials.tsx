@@ -8,11 +8,18 @@ import classes from "./Testimonials.module.css";
 
 export function Testimonials({
   testimonials,
+  soft,
 }: {
   testimonials: HomeContent["testimonials"];
+  soft?: boolean;
 }) {
   return (
-    <Section id="testimonials" cms="Home page › Testimonials" {...testimonials}>
+    <Section
+      id="testimonials"
+      cms="Home page › Testimonials"
+      soft={soft}
+      {...testimonials}
+    >
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">
         {(testimonials.items ?? []).map((item, index) => (
           <Reveal

@@ -10,9 +10,15 @@ import { Reveal } from "../Reveal";
 import { Section } from "../Section/Section";
 import classes from "./Faq.module.css";
 
-export function Faq({ faq }: { faq: HomeContent["faq"] }) {
+export function Faq({
+  faq,
+  soft,
+}: {
+  faq: HomeContent["faq"];
+  soft?: boolean;
+}) {
   return (
-    <Section id="faq" cms="Home page › FAQ" {...faq}>
+    <Section id="faq" cms="Home page › FAQ" soft={soft} {...faq}>
       <Reveal className={classes.wrap}>
         <Accordion variant="separated" radius="md" chevronPosition="right">
           {(faq.items ?? []).map((item, index) => (

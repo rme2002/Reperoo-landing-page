@@ -214,7 +214,7 @@
     "count": 3
   },
   "cta": {
-    "enabled": true,
+    "enabled": false,
     "title": "Free up your iPhone without paying for the cloud.",
     "text": "Join the waitlist and we'll let you know the day Reperoo lands on the App Store.",
     "buttonLabel": "Join the waitlist",
@@ -223,7 +223,7 @@
   "contact": {
     "enabled": true,
     "eyebrow": "Waitlist",
-    "title": "Be first in line",
+    "title": "Free up your iPhone without paying for the cloud.",
     "text": "Leave your email and we'll tell you when Reperoo launches. Got a question, or a drive you'd like us to test? Add a message.",
     "email": "hello@reperoo.example",
     "phone": "",

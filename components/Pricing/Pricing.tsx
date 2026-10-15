@@ -19,10 +19,16 @@ function formatPrice(price: number, currency: string) {
   return `${currency}${Number.isInteger(price) ? price : price.toFixed(2)}`;
 }
 
-export function Pricing({ pricing }: { pricing: HomeContent["pricing"] }) {
+export function Pricing({
+  pricing,
+  soft,
+}: {
+  pricing: HomeContent["pricing"];
+  soft?: boolean;
+}) {
   const plans = pricing.plans ?? [];
   return (
-    <Section id="pricing" cms="Home page › Pricing" soft {...pricing}>
+    <Section id="pricing" cms="Home page › Pricing" soft={soft} {...pricing}>
       <SimpleGrid
         cols={{
           base: 1,

@@ -6,12 +6,18 @@ import { Reveal } from "../Reveal";
 import { Section } from "../Section/Section";
 import classes from "./Showcase.module.css";
 
-export function Showcase({ showcase }: { showcase: HomeContent["showcase"] }) {
+export function Showcase({
+  showcase,
+  soft,
+}: {
+  showcase: HomeContent["showcase"];
+  soft?: boolean;
+}) {
   return (
     <Section
       id="how-it-works"
       cms="Home page › How it works"
-      soft
+      soft={soft}
       {...showcase}
     >
       <div className={classes.rows}>

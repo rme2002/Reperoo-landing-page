@@ -298,6 +298,7 @@ content:
           - name: enabled
             label: Show this section
             type: boolean
+            description: Shown above the FAQ. The waitlist section already ends the page.
           - name: title
             type: string
           - name: text
