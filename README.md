@@ -25,7 +25,7 @@ Checks: `npm run typecheck`, `npm run lint`, `npm run build`. The build writes t
 
 Uploaded images go to `public/images/`. The field definitions are in [`.pages.yml`](.pages.yml).
 
-The **Show editable areas** button on the site outlines each region and names the CMS entry that controls it.
+The **Show editable areas** button outlines each region and names the CMS entry that controls it. It appears in development, or on the live site when you add `?editable` to the URL.
 
 ## Deploy to GitHub Pages
 
