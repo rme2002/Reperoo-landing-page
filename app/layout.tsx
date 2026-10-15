@@ -35,6 +35,10 @@ ${
 export const metadata: Metadata = {
   title: { default: site.seo.title, template: `%s · ${site.name}` },
   description: site.seo.description,
+  icons: {
+    icon: { url: withBasePath("/icon.svg"), type: "image/svg+xml" },
+    apple: withBasePath("/apple-touch-icon.png"),
+  },
 };
 
 export const viewport: Viewport = {
@@ -58,7 +62,6 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: headScript }} />
-        <link rel="shortcut icon" href={withBasePath("/favicon.svg")} />
       </head>
       <body>
         <Providers>
