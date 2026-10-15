@@ -2,15 +2,14 @@ import "@mantine/core/styles.css";
 import "./globals.css";
 import React from "react";
 import type { Metadata, Viewport } from "next";
-import { MantineProvider } from "@mantine/core";
 import { AnnouncementBar } from "@/components/AnnouncementBar/AnnouncementBar";
 import { BackToTop } from "@/components/BackToTop";
 import { CmsHintsToggle } from "@/components/CmsHints/CmsHintsToggle";
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
+import { Providers } from "@/components/Providers";
 import { site } from "@/lib/content";
 import { withBasePath } from "@/lib/paths";
-import { theme } from "../theme";
 
 export const metadata: Metadata = {
   title: { default: site.seo.title, template: `%s · ${site.name}` },
@@ -44,7 +43,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href={withBasePath("/favicon.svg")} />
       </head>
       <body>
-        <MantineProvider theme={theme} forceColorScheme="dark">
+        <Providers>
           {announcement.enabled && announcement.text && (
             <AnnouncementBar
               text={announcement.text}
@@ -62,7 +61,7 @@ export default function RootLayout({
           <Footer />
           <BackToTop />
           <CmsHintsToggle />
-        </MantineProvider>
+        </Providers>
       </body>
     </html>
   );

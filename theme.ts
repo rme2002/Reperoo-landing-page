@@ -1,6 +1,10 @@
-import { createTheme, type MantineColorsTuple } from "@mantine/core";
+import {
+  createTheme,
+  type CSSVariablesResolver,
+  type MantineColorsTuple,
+} from "@mantine/core";
 
-// Shade 4 is the accent.
+// Shade 4 is the accent, shade 3 its hover.
 const mahogany: MantineColorsTuple = [
   "#faf2ef",
   "#f3e0d9",
@@ -68,5 +72,19 @@ export const theme = createTheme({
       h5: { fontSize: "16px", lineHeight: "1.5" },
       h6: { fontSize: "16px", lineHeight: "1.5" },
     },
+  },
+});
+
+export const cssVariablesResolver: CSSVariablesResolver = () => ({
+  variables: {},
+  light: {},
+  dark: {
+    "--mantine-color-mahogany-filled-hover": "var(--mantine-color-mahogany-3)",
+    "--mantine-color-mahogany-light":
+      "color-mix(in srgb, var(--mantine-color-mahogany-4) 16%, transparent)",
+    "--mantine-color-mahogany-light-hover":
+      "color-mix(in srgb, var(--mantine-color-mahogany-4) 24%, transparent)",
+    "--mantine-color-mahogany-light-color": "var(--mantine-color-mahogany-2)",
+    "--mantine-color-error": "var(--mantine-color-red-4)",
   },
 });
