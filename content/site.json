@@ -35,7 +35,7 @@
         "title": "More",
         "links": [
           { "label": "Blog", "href": "/blog" },
-          { "label": "Format your SSD", "href": "/blog/how-to-format-your-ssd-as-exfat" },
+          { "label": "Format your drive", "href": "/blog/how-to-format-your-drive-as-exfat" },
           { "label": "Waitlist", "href": "/#contact" },
           { "label": "Privacy", "href": "/privacy" }
         ]
