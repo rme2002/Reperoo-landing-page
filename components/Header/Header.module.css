@@ -3,38 +3,39 @@
   top: 0;
   z-index: 100;
   background: var(--lp-header-bg);
-  backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(16px);
   border-bottom: 1px solid transparent;
   transition:
-    border-color 200ms ease,
-    box-shadow 200ms ease;
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .header[data-scrolled] {
-  border-bottom-color: var(--mantine-color-default-border);
-  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+  border-bottom-color: var(--lp-hairline);
+  box-shadow: 0 16px 32px -20px rgba(0, 0, 0, 0.9);
 }
 
 .inner {
-  height: 4.25rem;
+  height: var(--space-16);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .brand {
+  min-height: var(--tap);
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: var(--space-3);
   color: var(--mantine-color-text);
-  font-size: 1.1rem;
-  font-weight: 800;
+  font-size: var(--text-lead);
+  font-weight: 700;
   text-decoration: none;
 }
 
 .brandMark {
-  border-radius: 8px;
+  border-radius: var(--mantine-radius-sm);
   display: grid;
   place-items: center;
   background: var(--mantine-primary-color-filled);
@@ -43,28 +44,43 @@
 
 .desktopNav {
   display: flex;
-  gap: 0.25rem;
+  gap: var(--space-1);
 }
 
 .link {
-  padding: 0.45rem 0.8rem;
-  border-radius: var(--mantine-radius-md);
-  color: var(--mantine-color-text);
-  font-size: 0.95rem;
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--mantine-color-dimmed);
+  font-size: var(--text-small);
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 150ms ease;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .link:hover {
-  background: var(--mantine-color-default-hover);
+  color: var(--mantine-color-text);
+}
+
+.drawerLink {
+  min-height: var(--space-12);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--lp-hairline);
+  color: var(--mantine-color-text);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .burger {
   display: none;
+  width: var(--tap);
+  height: var(--tap);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 56em) {
   .desktopNav,
   .desktopCta {
     display: none;

@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Burger, Button, Container, Drawer, Group, Stack } from "@mantine/core";
+import { Burger, Container, Drawer, Group, Stack } from "@mantine/core";
 import { useDisclosure, useWindowScroll } from "@mantine/hooks";
 import type { Link as NavLink } from "@/lib/content";
 import { BrandMark } from "../BrandMark";
+import { ButtonLink } from "../ButtonLink";
 import { SiteLink } from "../SiteLink";
 import classes from "./Header.module.css";
 
@@ -19,16 +20,17 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
   const [opened, { close, toggle }] = useDisclosure(false);
   const [scroll] = useWindowScroll();
 
-  const links = navigation.map((item, index) => (
-    <SiteLink
-      key={`${index}-${item.href}`}
-      href={item.href}
-      className={classes.link}
-      onClick={close}
-    >
-      {item.label}
-    </SiteLink>
-  ));
+  const links = (className: string) =>
+    navigation.map((item, index) => (
+      <SiteLink
+        key={`${index}-${item.href}`}
+        href={item.href}
+        className={className}
+        onClick={close}
+      >
+        {item.label}
+      </SiteLink>
+    ));
 
   return (
     <header
@@ -48,25 +50,24 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
         </Link>
 
         <nav className={classes.desktopNav} aria-label="Main">
-          {links}
+          {links(classes.link)}
         </nav>
 
         <Group gap="xs" wrap="nowrap">
           {cta?.label && (
-            <Button
-              component={Link}
+            <ButtonLink
               href={cta.href}
+              variant="default"
               className={classes.desktopCta}
             >
               {cta.label}
-            </Button>
+            </ButtonLink>
           )}
           <Burger
             opened={opened}
+            size="sm"
             onClick={toggle}
-            aria-label={
-              opened ? "Close navigation menu" : "Open navigation menu"
-            }
+            aria-label="Menu"
             aria-expanded={opened}
             className={classes.burger}
           />
@@ -78,17 +79,18 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
         onClose={close}
         position="right"
         size="xs"
-        title={name}
+        title="Menu"
         padding="lg"
+        closeButtonProps={{ "aria-label": "Close menu", size: "xl" }}
       >
-        <Stack gap="md">
-          {links}
-          {cta?.label && (
-            <Button component={Link} href={cta.href} onClick={close} fullWidth>
-              {cta.label}
-            </Button>
-          )}
-        </Stack>
+        <nav aria-label="Main">
+          <Stack gap={0}>{links(classes.drawerLink)}</Stack>
+        </nav>
+        {cta?.label && (
+          <ButtonLink href={cta.href} onClick={close} fullWidth mt="lg">
+            {cta.label}
+          </ButtonLink>
+        )}
       </Drawer>
     </header>
   );
