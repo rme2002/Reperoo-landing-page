@@ -171,6 +171,13 @@ html[data-js] [data-reveal]:not([data-reveal="visible"]) {
   transform: translateY(var(--space-4));
 }
 
+@keyframes lp-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-4));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html[data-js] [data-reveal] {
     opacity: 1;
