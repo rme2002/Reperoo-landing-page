@@ -1,8 +1,9 @@
-import { Badge, Container, Group, Text, Title } from "@mantine/core";
+import { Container, Group, Text, Title } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import type { HomeContent } from "@/lib/content";
 import { ButtonLink } from "../ButtonLink";
 import { CmsImage } from "../CmsImage";
+import { Eyebrow } from "../Section/Section";
 import classes from "./Hero.module.css";
 
 export function Hero({ hero }: { hero: HomeContent["hero"] }) {
@@ -16,23 +17,12 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
         data-single={!hero.image || undefined}
       >
         <div className={classes.copy}>
-          {hero.eyebrow && (
-            <Badge
-              variant="light"
-              size="lg"
-              radius="xl"
-              className={classes.badge}
-            >
-              {hero.eyebrow}
-            </Badge>
-          )}
-          <Title order={1} className={classes.title}>
-            {hero.title}
-          </Title>
+          {hero.eyebrow && <Eyebrow>{hero.eyebrow}</Eyebrow>}
+          <Title order={1}>{hero.title}</Title>
           {hero.subtitle && (
             <Text className={classes.subtitle}>{hero.subtitle}</Text>
           )}
-          <Group gap="sm" mt="xl">
+          <Group gap="sm" mt="xl" className={classes.actions}>
             {hero.primaryCta?.label && (
               <ButtonLink
                 href={hero.primaryCta.href}
