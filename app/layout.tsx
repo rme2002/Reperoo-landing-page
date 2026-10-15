@@ -40,7 +40,12 @@ export default function RootLayout({
   const { announcement } = site;
 
   return (
-    <html lang="en" data-mantine-color-scheme="dark" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-mantine-color-scheme="dark"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: headScript }} />
         <link rel="shortcut icon" href={withBasePath("/favicon.svg")} />
