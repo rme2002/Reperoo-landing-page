@@ -103,9 +103,11 @@ content:
                 component: icon
               - name: value
                 type: string
+                required: true
                 description: A number with an optional unit, like 100%, 0 or €3.50. Simple numbers count up; numbers with thousands separators are shown as typed.
               - name: label
                 type: string
+                required: true
 
       - name: logos
         label: Compatibility strip
@@ -145,6 +147,7 @@ content:
                 component: icon
               - name: title
                 type: string
+                required: true
               - name: description
                 type: text
 
@@ -174,6 +177,7 @@ content:
             fields:
               - name: title
                 type: string
+                required: true
               - name: text
                 type: text
               - name: image
@@ -211,6 +215,7 @@ content:
                 description: A typical need in this person's words. Not a customer review.
               - name: name
                 type: string
+                required: true
               - name: role
                 type: string
               - name: avatar
@@ -248,10 +253,12 @@ content:
             fields:
               - name: name
                 type: string
+                required: true
               - name: description
                 type: text
               - name: price
                 type: number
+                required: true
                 description: 0 shows the free label.
               - name: priceSuffix
                 label: Text after the price
@@ -270,9 +277,11 @@ content:
               - name: ctaLabel
                 label: Button label
                 type: string
+                required: true
               - name: ctaHref
                 label: Button link
                 component: href
+                required: true
 
       - name: faq
         label: FAQ
@@ -296,8 +305,10 @@ content:
             fields:
               - name: question
                 type: string
+                required: true
               - name: answer
                 type: text
+                required: true
               - name: link
                 label: Read more link
                 component: link
@@ -379,9 +390,11 @@ content:
           - name: buttonLabel
             label: Form button label
             type: string
+            required: true
           - name: successMessage
             label: Message shown after joining
             type: text
+            required: true
           - name: privacyNote
             label: Privacy note under the button
             type: text
@@ -426,6 +439,7 @@ content:
         required: true
       - name: date
         type: date
+        required: true
         options:
           format: yyyy-MM-dd
       - name: author
@@ -532,6 +546,7 @@ content:
             fields:
               - name: title
                 type: string
+                required: true
               - name: links
                 type: object
                 list: true
