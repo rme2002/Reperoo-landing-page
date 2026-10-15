@@ -23,9 +23,8 @@ export function PostCard({
         )}
       </div>
       <div className={classes.body}>
-        <Text size="xs" c="dimmed" fw={600}>
+        <Text size="sm" c="dimmed">
           {formatDate(post.date)}
-          {post.author && ` · ${post.author}`}
         </Text>
         <Title
           order={headingOrder}

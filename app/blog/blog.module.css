@@ -1,23 +1,32 @@
 .page {
-  padding: clamp(3rem, 7vw, 5rem) 0 clamp(4rem, 9vw, 7rem);
+  padding-block: var(--space-12) var(--space-16);
+}
+
+@media (min-width: 48em) {
+  .page {
+    padding-block: var(--space-16) var(--space-24);
+  }
 }
 
 .intro {
-  max-width: 640px;
-  margin-bottom: 3rem;
+  max-width: var(--measure-title);
+  margin-bottom: var(--space-12);
 }
 
-.title {
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
-  letter-spacing: -0.03em;
+.lead {
+  margin-top: var(--space-4);
+  color: var(--mantine-color-dimmed);
+  font-size: var(--text-lead);
+  line-height: 1.6;
 }
 
 .back {
+  min-height: var(--tap);
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: var(--space-2);
   color: var(--mantine-color-dimmed);
-  font-size: 0.9rem;
+  font-size: var(--text-small);
   font-weight: 600;
   text-decoration: none;
 }
@@ -26,22 +35,28 @@
   color: var(--mantine-color-text);
 }
 
-.postTitle {
-  margin-top: 0.5rem;
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-}
-
 .cover {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16 / 8;
-  border-radius: 20px;
-  background: var(--lp-bg-soft);
+  aspect-ratio: 2 / 1;
+  border-radius: var(--radius-lg);
+  background: var(--lp-fill);
 }
 
 .body {
-  font-size: 1.1rem;
-  line-height: 1.75;
+  font-size: var(--text-lead);
+  line-height: 1.7;
+}
+
+.body h2 {
+  margin: var(--space-12) 0 var(--space-3);
+  font-size: var(--mantine-h3-font-size);
+  line-height: var(--mantine-h3-line-height);
+}
+
+.body blockquote {
+  border: 1px solid var(--lp-hairline);
+  border-inline-start: 3px solid var(--mantine-primary-color-filled);
+  border-radius: var(--radius-md);
+  background: var(--lp-surface);
 }

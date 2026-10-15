@@ -26,23 +26,17 @@ export default async function PostPage({ params }: Props) {
     <article className={classes.page} data-cms={`Blog posts › ${post.title}`}>
       <Container size={760}>
         <Link href="/blog" className={classes.back}>
-          <IconArrowLeft size={16} /> All posts
+          <IconArrowLeft size={16} aria-hidden /> All posts
         </Link>
         <Text c="dimmed" fw={600} size="sm" mt="xl">
           {formatDate(post.date)}
           {post.author && ` · ${post.author}`}
         </Text>
-        <Title order={1} className={classes.postTitle}>
-          {post.title}
-        </Title>
-        {post.excerpt && (
-          <Text size="xl" c="dimmed" mt="md" lh={1.6}>
-            {post.excerpt}
-          </Text>
-        )}
+        <Title order={1}>{post.title}</Title>
+        {post.excerpt && <Text className={classes.lead}>{post.excerpt}</Text>}
       </Container>
       {post.cover && (
-        <Container size={960} mt={40}>
+        <Container size={960} mt="xl">
           <div className={classes.cover}>
             <CmsImage
               src={post.cover}
@@ -53,7 +47,7 @@ export default async function PostPage({ params }: Props) {
           </div>
         </Container>
       )}
-      <Container size={760} mt={40}>
+      <Container size={760} mt="xl">
         <Typography className={classes.body}>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Typography>

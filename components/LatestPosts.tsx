@@ -26,12 +26,12 @@ export function LatestPosts({
     >
       <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
         {posts.map((post, index) => (
-          <Reveal key={post.slug} delay={index * 100}>
+          <Reveal key={post.slug} delay={index * 80}>
             <PostCard post={post} headingOrder={3} />
           </Reveal>
         ))}
       </SimpleGrid>
-      <Group justify="center" mt={40}>
+      <Group justify="center" mt="xl">
         <ButtonLink
           href="/blog"
           variant="default"
