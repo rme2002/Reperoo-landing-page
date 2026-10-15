@@ -174,7 +174,7 @@ content:
                 list: true
 
       - name: testimonials
-        label: Testimonials
+        label: Who it's for (personas)
         type: object
         fields:
           - name: enabled
@@ -184,7 +184,7 @@ content:
           - name: title
             type: string
           - name: items
-            label: Quotes
+            label: Personas
             type: object
             list:
               collapsible:
@@ -192,13 +192,15 @@ content:
                 summary: "{name}"
             fields:
               - name: quote
+                label: What they'd say
                 type: text
+                description: A typical need in this person's words. Not a customer review.
               - name: name
                 type: string
               - name: role
                 type: string
               - name: avatar
-                label: Photo
+                label: Illustration
                 type: image
                 description: Optional. Initials are shown when empty.
 

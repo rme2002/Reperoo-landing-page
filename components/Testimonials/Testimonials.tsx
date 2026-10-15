@@ -1,5 +1,4 @@
-import { Avatar, Group, SimpleGrid, Text } from "@mantine/core";
-import { IconQuote } from "@tabler/icons-react";
+import { Avatar, Group, SimpleGrid, Text, Title } from "@mantine/core";
 import type { HomeContent } from "@/lib/content";
 import { withBasePath } from "@/lib/paths";
 import { Reveal } from "../Reveal";
@@ -16,7 +15,7 @@ export function Testimonials({
   return (
     <Section
       id="testimonials"
-      cms="Home page › Testimonials"
+      cms="Home page › Who it's for (personas)"
       soft={soft}
       {...testimonials}
     >
@@ -24,33 +23,35 @@ export function Testimonials({
         {(testimonials.items ?? []).map((item, index) => (
           <Reveal
             key={`${index}-${item.name}`}
-            delay={index * 100}
+            delay={index * 80}
             className={classes.cell}
           >
-            <figure className={classes.card}>
-              <IconQuote size={28} className={classes.quoteIcon} />
-              <Text component="blockquote" className={classes.quote}>
-                {item.quote}
-              </Text>
-              <Group gap="sm" mt="auto" pt="lg">
+            <article className={classes.card}>
+              <Group gap="sm" wrap="nowrap">
                 <Avatar
                   src={item.avatar ? withBasePath(item.avatar) : null}
                   name={item.name}
-                  color="initials"
+                  alt=""
+                  color="gray"
                   radius="xl"
+                  size={44}
+                  imageProps={{ loading: "lazy", decoding: "async" }}
                 />
                 <div>
-                  <Text fw={700} size="sm">
+                  <Title order={3} size="h4" fw={600}>
                     {item.name}
-                  </Text>
+                  </Title>
                   {item.role && (
-                    <Text size="xs" c="dimmed">
+                    <Text size="sm" c="dimmed">
                       {item.role}
                     </Text>
                   )}
                 </div>
               </Group>
-            </figure>
+              <Text mt="md" className={classes.scenario}>
+                {item.quote}
+              </Text>
+            </article>
           </Reveal>
         ))}
       </SimpleGrid>
