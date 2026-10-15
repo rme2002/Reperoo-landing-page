@@ -13,7 +13,7 @@ export function CallToAction({ cta }: { cta: HomeContent["cta"] }) {
     >
       <Container size="lg">
         <Reveal className={classes.banner}>
-          <Title order={2} className={classes.title}>
+          <Title order={2} c="inherit">
             {cta.title}
           </Title>
           {cta.text && <Text className={classes.text}>{cta.text}</Text>}
