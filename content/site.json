@@ -6,10 +6,10 @@
     "description": "Copy photos and videos from your iPhone to a USB-C SSD. Verified, private, no computer or cloud needed. Buy it once, keep it forever."
   },
   "announcement": {
-    "enabled": true,
-    "text": "Reperoo is coming to the App Store.",
-    "linkLabel": "Join the waitlist",
-    "href": "/#contact"
+    "enabled": false,
+    "text": "New: how to format your drive for iPhone.",
+    "linkLabel": "Read the guide",
+    "href": "/blog/how-to-format-your-drive-as-exfat"
   },
   "navigation": [
     { "label": "How it works", "href": "/#how-it-works" },
