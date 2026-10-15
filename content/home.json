@@ -183,23 +183,35 @@
     "items": [
       {
         "question": "Which iPhones does Reperoo work with?",
-        "answer": "Reperoo is built for iPhones with a USB-C port: iPhone 15 and later. Support for Lightning iPhones with an adapter is still being looked at."
+        "answer": "Reperoo works on iPhone 15 and later, the models with a USB-C port. Support for Lightning models with an adapter is still being looked at."
       },
       {
         "question": "Which drives can I use?",
-        "answer": "Most USB-C SSDs and flash drives. Format the drive as exFAT on a computer first: FAT32 can't hold files over 4 GB, and Reperoo can't write to a read-only drive."
-      },
-      {
-        "question": "Does Reperoo upload my photos anywhere?",
-        "answer": "No. There's no account, no server and no tracking. Your photos are read on your iPhone and written to your drive, and nowhere else."
+        "answer": "Any USB-C drive your iPhone can write to in the Files app: SSDs, hard drives and flash drives. exFAT works best; if your drive is already exFAT, there's nothing to do. FAT32 works, but files over 4 GB (long 4K videos) fail and stay on your iPhone. Drives formatted for Windows (NTFS) are read-only on iPhone, so reformat those as exFAT. Some hard drives need more power than an iPhone can supply; use one with its own power adapter or a powered USB-C hub."
       },
       {
         "question": "How does Move keep my photos safe?",
-        "answer": "Each file is hashed while it's written, read back from the drive and hashed again, then checked once more right before anything is deleted. Only files that pass all three are deleted, through iOS's own confirmation, and they stay in Recently Deleted for 30 days."
+        "answer": "Each file is hashed while it's written, read back from the drive and hashed again, then checked once more right before anything is deleted. Only files that pass all three are deleted, through iOS's own confirmation, and they stay in Recently Deleted for 30 days. The space comes back once they leave Recently Deleted, so empty it in Photos if you need the room now."
+      },
+      {
+        "question": "I use iCloud Photos. What happens when I Move?",
+        "answer": "Move deletes from your Photos library, so with iCloud Photos on, those items also leave iCloud and your other devices. Your drive holds the copy, and Recently Deleted keeps the originals for 30 days. If Optimise iPhone Storage is on, Reperoo first downloads each full-size original from iCloud, which needs a connection. To keep everything in iCloud as well, use Copy."
       },
       {
         "question": "Do I get my original files?",
-        "answer": "Yes. Reperoo copies the originals (HEIC, JPEG, RAW, HEVC and ProRes) with their metadata, and keeps both halves of a Live Photo together."
+        "answer": "Yes. Reperoo copies the originals (HEIC, JPEG, RAW, HEVC and ProRes) exactly as shot, with their camera metadata, and keeps both halves of a Live Photo together. Edits you made in the Photos app aren't part of the original file, so for edited photos you want to keep as edited, use Copy rather than Move."
+      },
+      {
+        "question": "What if the drive comes unplugged?",
+        "answer": "Reperoo pauses, asks you to reconnect, and picks up where it left off. Nothing is deleted until every file has passed its final check."
+      },
+      {
+        "question": "How fast is it?",
+        "answer": "It depends on your iPhone and drive. iPhone 15 Pro and later Pro models, with a USB 3 cable and an SSD, can be several times faster than standard models, which run at USB 2 speeds. The cable in the box is USB 2."
+      },
+      {
+        "question": "Does Reperoo upload my photos anywhere?",
+        "answer": "No. Reperoo has no account and no server of its own, so your photos have nowhere to go but your drive. Nothing about you is tracked either."
       },
       {
         "question": "What if a file with the same name is already on the drive?",
@@ -207,7 +219,7 @@
       },
       {
         "question": "Is it a subscription?",
-        "answer": "No. Reperoo is a single one-time purchase of €3.50. Pay once and it's yours, with no renewals and no ads."
+        "answer": "No. €3.50 once, no renewals, no ads."
       }
     ]
   },
