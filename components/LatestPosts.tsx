@@ -33,7 +33,7 @@ export function LatestPosts({
         <ButtonLink
           href="/blog"
           variant="default"
-          rightSection={<IconArrowRight size={16} />}
+          rightSection={<IconArrowRight size={16} className="lp-arrow" />}
         >
           All posts
         </ButtonLink>

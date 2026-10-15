@@ -35,7 +35,7 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
               <ButtonLink
                 href={hero.primaryCta.href}
                 size="lg"
-                rightSection={<IconArrowRight size={18} />}
+                rightSection={<IconArrowRight size={18} className="lp-arrow" />}
               >
                 {hero.primaryCta.label}
               </ButtonLink>

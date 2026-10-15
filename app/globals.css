@@ -178,10 +178,23 @@ html[data-js] [data-reveal]:not([data-reveal="visible"]) {
   }
 }
 
+.lp-arrow {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+a:hover .lp-arrow,
+button:hover .lp-arrow {
+  transform: translateX(var(--space-1));
+}
+
 @media (prefers-reduced-motion: reduce) {
   html[data-js] [data-reveal] {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .lp-arrow {
     transition: none;
   }
 }

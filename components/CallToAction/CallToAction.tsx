@@ -22,7 +22,7 @@ export function CallToAction({ cta }: { cta: HomeContent["cta"] }) {
               href={cta.buttonHref}
               size="lg"
               mt="xl"
-              rightSection={<IconArrowRight size={18} />}
+              rightSection={<IconArrowRight size={18} className="lp-arrow" />}
             >
               {cta.buttonLabel}
             </ButtonLink>
