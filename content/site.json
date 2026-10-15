@@ -2,8 +2,8 @@
   "name": "Reperoo",
   "logo": "/images/reperoo-mark.svg",
   "seo": {
-    "title": "Reperoo — copy your iPhone photos straight to an SSD",
-    "description": "Copy photos and videos from your iPhone to a USB-C SSD. Verified, private, no computer or cloud needed. Buy it once, keep it forever."
+    "title": "Reperoo: copy iPhone photos to an SSD or hard drive",
+    "description": "Copy or move iPhone photos and videos to a USB-C SSD or hard drive, no computer needed. Every file checked three times. €3.50 once. Join the waitlist."
   },
   "announcement": {
     "enabled": false,
@@ -20,7 +20,7 @@
   ],
   "navCta": { "label": "Join the waitlist", "href": "/#contact" },
   "footer": {
-    "text": "Copy your iPhone's photos and videos straight to an SSD. No computer, no cloud, no subscription.",
+    "text": "Copy photos and videos from your iPhone straight to an SSD or hard drive. No computer, no subscription, nothing uploaded.",
     "columns": [
       {
         "title": "Product",
