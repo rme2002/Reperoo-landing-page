@@ -5,12 +5,27 @@ import classes from "./LogoCloud.module.css";
 export function LogoCloud({ logos }: { logos: HomeContent["logos"] }) {
   const items = logos.items ?? [];
   return (
-    <section className={classes.section} data-cms="Home page › Logo strip">
+    <section
+      className={classes.section}
+      data-cms="Home page › Compatibility strip"
+    >
       <Container size="lg">
         {logos.title && <Text className={classes.title}>{logos.title}</Text>}
-        <Marquee pauseOnHover gap="3rem" duration={30000}>
+        <ul className={classes.list} aria-label={logos.title || undefined}>
           {items.map((name, index) => (
-            <span key={`${index}-${name}`} className={classes.logo}>
+            <li key={`${index}-${name}`}>{name}</li>
+          ))}
+        </ul>
+        <Marquee
+          aria-hidden
+          pauseOnHover
+          gap="xl"
+          duration={40000}
+          fadeEdgeSize="10%"
+          classNames={{ root: classes.marquee }}
+        >
+          {items.map((name, index) => (
+            <span key={`${index}-${name}`} className={classes.item}>
               {name}
             </span>
           ))}

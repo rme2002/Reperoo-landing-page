@@ -1,21 +1,50 @@
 .section {
-  padding: 2.5rem 0;
-  border-block: 1px solid var(--mantine-color-default-border);
+  padding-block: var(--space-8);
+  border-block: 1px solid var(--lp-hairline);
 }
 
 .title {
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-4);
   color: var(--mantine-color-dimmed);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: var(--text-small);
   text-align: center;
 }
 
-.logo {
-  color: var(--mantine-color-dimmed);
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.item {
+  font-size: var(--text-body);
+  font-weight: 600;
   white-space: nowrap;
-  opacity: 0.75;
+}
+
+.list {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  list-style: none;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    display: none;
+  }
+
+  .list {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3) var(--space-8);
+    font-size: var(--text-body);
+    font-weight: 600;
+    white-space: normal;
+  }
 }

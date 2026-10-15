@@ -102,7 +102,7 @@ content:
                 type: string
 
       - name: logos
-        label: Logo strip
+        label: Compatibility strip
         type: object
         fields:
           - name: enabled
@@ -110,9 +110,10 @@ content:
           - name: title
             type: string
           - name: items
-            label: Company names
+            label: Supported devices and formats
             type: string
             list: true
+            description: Devices, drives and formats Reperoo supports. Not company or press logos.
 
       - name: features
         label: Features
