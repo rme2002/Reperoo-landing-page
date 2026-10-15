@@ -151,5 +151,8 @@ export function formatDate(isoDate: string) {
   const date = new Date(isoDate);
   return Number.isNaN(date.getTime())
     ? isoDate
-    : new Intl.DateTimeFormat("en-GB", { dateStyle: "long" }).format(date);
+    : new Intl.DateTimeFormat("en-GB", {
+        dateStyle: "long",
+        timeZone: "UTC",
+      }).format(date);
 }
