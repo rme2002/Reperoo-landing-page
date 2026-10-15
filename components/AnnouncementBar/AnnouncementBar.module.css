@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+:global(html[data-announcement-dismissed]) .bar {
+  display: none;
+}
+
 .content {
   margin: 0;
   display: flex;

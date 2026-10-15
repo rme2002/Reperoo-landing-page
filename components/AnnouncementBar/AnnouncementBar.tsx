@@ -41,7 +41,13 @@ export function AnnouncementBar({
         variant="subtle"
         className={classes.close}
         aria-label="Dismiss announcement"
-        onClick={() => setDismissed(text)}
+        onClick={() => {
+          document.documentElement.setAttribute(
+            "data-announcement-dismissed",
+            "",
+          );
+          setDismissed(text);
+        }}
       />
     </section>
   );

@@ -12,12 +12,22 @@ import { Providers } from "@/components/Providers";
 import { site } from "@/lib/content";
 import { withBasePath } from "@/lib/paths";
 
+const { announcement } = site;
+const showAnnouncement = announcement.enabled && Boolean(announcement.text);
+
 // Runs before paint: flags JS for the reveal styles (undone if hydration never
-// happens).
+// happens), and re-applies a stored announcement dismissal.
 const headScript = `(function(){
 var d=document.documentElement;
 d.setAttribute("data-js","");
 setTimeout(function(){if(!d.hasAttribute("data-hydrated"))d.removeAttribute("data-js");},4000);
+try{
+${
+  showAnnouncement
+    ? `if(JSON.parse(localStorage.getItem("announcement-dismissed")||"null")===${JSON.stringify(announcement.text).replace(/</g, "\\u003c")})d.setAttribute("data-announcement-dismissed","");`
+    : ""
+}
+}catch(e){}
 })();`;
 
 export const metadata: Metadata = {
@@ -37,8 +47,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { announcement } = site;
-
   return (
     <html
       lang="en"
@@ -56,7 +64,7 @@ export default function RootLayout({
           <a href="#main" className="lp-skip">
             Skip to content
           </a>
-          {announcement.enabled && announcement.text && (
+          {showAnnouncement && (
             <AnnouncementBar
               text={announcement.text}
               linkLabel={announcement.linkLabel}
