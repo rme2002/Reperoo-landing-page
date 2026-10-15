@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Container, Text, Title, Typography } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { CmsImage } from "@/components/CmsImage";
-import { formatDate, getPost, getPosts } from "@/lib/content";
+import { formatDate, getPost, getPosts, site } from "@/lib/content";
 import classes from "../blog.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -32,7 +32,7 @@ export default async function PostPage({ params }: Props) {
     <article className={classes.page} data-cms={`Blog posts › ${post.title}`}>
       <Container size={760}>
         <Link href="/blog" className={classes.back}>
-          <IconArrowLeft size={16} aria-hidden /> All posts
+          <IconArrowLeft size={16} aria-hidden /> {site.blog.allPostsLabel}
         </Link>
         {(post.date || post.author) && (
           <Text c="dimmed" size="sm" mt="xl" mb="xs">

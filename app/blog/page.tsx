@@ -2,22 +2,28 @@ import type { Metadata } from "next";
 import { Container, SimpleGrid, Text, Title } from "@mantine/core";
 import { PostCard } from "@/components/PostCard/PostCard";
 import { Reveal } from "@/components/Reveal";
-import { getPosts } from "@/lib/content";
+import { getPosts, site } from "@/lib/content";
 import classes from "./blog.module.css";
 
-export const metadata: Metadata = { title: "Blog" };
+export const metadata: Metadata = {
+  title: site.blog.title,
+  description: site.blog.description,
+};
 
 export default function BlogPage() {
   const posts = getPosts();
 
   return (
-    <section className={classes.page} data-cms="Blog posts">
+    <section
+      className={classes.page}
+      data-cms="Site settings › Blog page · posts in Blog posts"
+    >
       <Container size="lg">
         <div className={classes.intro}>
-          <Title order={1}>Blog</Title>
-          <Text className={classes.lead}>
-            Product news, customer stories and tips for calmer projects.
-          </Text>
+          <Title order={1}>{site.blog.title}</Title>
+          {site.blog.lead && (
+            <Text className={classes.lead}>{site.blog.lead}</Text>
+          )}
         </div>
         {posts.length > 0 ? (
           <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
@@ -32,7 +38,7 @@ export default function BlogPage() {
             )}
           </SimpleGrid>
         ) : (
-          <Text c="dimmed">No posts yet. Check back soon.</Text>
+          <Text c="dimmed">{site.blog.emptyText}</Text>
         )}
       </Container>
     </section>

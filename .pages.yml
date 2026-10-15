@@ -535,3 +535,21 @@ content:
                 type: string
           - name: copyright
             type: string
+      - name: blog
+        label: Blog page
+        type: object
+        fields:
+          - name: title
+            type: string
+          - name: lead
+            label: Text under the title
+            type: text
+          - name: description
+            label: Search description
+            type: text
+          - name: emptyText
+            label: Text shown when there are no posts
+            type: string
+          - name: allPostsLabel
+            label: "\"All posts\" link label"
+            type: string

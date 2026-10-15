@@ -1,6 +1,6 @@
 import { Group, SimpleGrid } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
-import type { HomeContent, Post } from "@/lib/content";
+import { site, type HomeContent, type Post } from "@/lib/content";
 import { ButtonLink } from "./ButtonLink";
 import { PostCard } from "./PostCard/PostCard";
 import { Reveal } from "./Reveal";
@@ -37,7 +37,7 @@ export function LatestPosts({
           variant="default"
           rightSection={<IconArrowRight size={16} className="lp-arrow" />}
         >
-          All posts
+          {site.blog.allPostsLabel}
         </ButtonLink>
       </Group>
     </Section>

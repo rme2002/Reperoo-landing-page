@@ -26,6 +26,13 @@ export type SiteContent = {
     socials: { platform: string; href: string }[];
     copyright: string;
   };
+  blog: {
+    title: string;
+    lead?: string;
+    description?: string;
+    emptyText: string;
+    allPostsLabel: string;
+  };
 };
 
 type Section = {

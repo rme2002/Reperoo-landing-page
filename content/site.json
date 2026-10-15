@@ -43,5 +43,12 @@
     ],
     "socials": [],
     "copyright": "© 2026 Reperoo. All rights reserved."
+  },
+  "blog": {
+    "title": "Blog",
+    "lead": "Guides and updates on getting your photos off your iPhone.",
+    "description": "Guides to copying and moving iPhone photos to an SSD or hard drive: drive formats, verification and pricing.",
+    "emptyText": "No posts yet. Check back soon.",
+    "allPostsLabel": "All posts"
   }
 }
