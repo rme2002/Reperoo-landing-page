@@ -35,6 +35,7 @@ components:
     options:
       values:
         - { name: shield, label: Shield }
+        - { name: tag, label: Price tag }
         - { name: photo, label: Photo }
         - { name: live-photo, label: Live Photo }
         - { name: folder, label: Folder }
@@ -93,6 +94,8 @@ content:
                 collapsed: true
                 summary: "{value} {label}"
             fields:
+              - name: icon
+                component: icon
               - name: value
                 type: string
               - name: label

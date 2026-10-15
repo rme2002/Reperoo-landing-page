@@ -1,6 +1,7 @@
 import { Container, Group, Text, Title } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import type { HomeContent } from "@/lib/content";
+import { featureIcon } from "@/lib/icons";
 import { ButtonLink } from "../ButtonLink";
 import { CmsImage } from "../CmsImage";
 import { Eyebrow } from "../Section/Section";
@@ -42,16 +43,6 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
               </ButtonLink>
             )}
           </Group>
-          {stats.length > 0 && (
-            <dl className={classes.stats}>
-              {stats.map((stat, index) => (
-                <div key={`${index}-${stat.label}`}>
-                  <dt className={classes.statLabel}>{stat.label}</dt>
-                  <dd className={classes.statValue}>{stat.value}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
         </div>
 
         {hero.image && (
@@ -66,6 +57,32 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
           </div>
         )}
       </Container>
+      {stats.length > 0 && (
+        <Container size="lg">
+          <dl className={classes.band}>
+            {stats.map((stat, index) => {
+              const Icon = stat.icon ? featureIcon(stat.icon) : null;
+              return (
+                <div
+                  key={`${index}-${stat.label}`}
+                  className={classes.stat}
+                  data-with-icon={Icon ? "" : undefined}
+                >
+                  <dt className={classes.statLabel}>{stat.label}</dt>
+                  <dd className={classes.statValue}>
+                    {Icon && (
+                      <span className={classes.statIcon} aria-hidden>
+                        <Icon size={20} stroke={1.75} />
+                      </span>
+                    )}
+                    {stat.value}
+                  </dd>
+                </div>
+              );
+            })}
+          </dl>
+        </Container>
+      )}
     </section>
   );
 }

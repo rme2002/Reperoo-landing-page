@@ -15,16 +15,19 @@
     "imageAlt": "An iPhone copying photos to a USB-C SSD in Reperoo",
     "stats": [
       {
-        "value": "3",
-        "label": "checks before a delete"
+        "icon": "shield",
+        "value": "100%",
+        "label": "Verified before anything is deleted"
       },
       {
+        "icon": "cloud-off",
         "value": "0",
-        "label": "accounts or uploads"
+        "label": "Accounts, uploads or trackers"
       },
       {
-        "value": "1",
-        "label": "purchase, no subscription"
+        "icon": "tag",
+        "value": "€3.50",
+        "label": "Once. No subscription, no ads"
       }
     ]
   },

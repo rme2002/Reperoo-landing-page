@@ -44,7 +44,7 @@ export type HomeContent = {
     secondaryCta?: Link;
     image?: string;
     imageAlt?: string;
-    stats: { value: string; label: string }[];
+    stats: { icon?: string; value: string; label: string }[];
   };
   logos: { enabled: boolean; title?: string; items: string[] };
   features: Section & {

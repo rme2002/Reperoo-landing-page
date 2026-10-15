@@ -22,6 +22,7 @@ import {
   IconRocket,
   IconShieldCheck,
   IconSparkles,
+  IconTag,
   IconUsb,
   IconUsers,
   type Icon,
@@ -47,6 +48,7 @@ const FEATURE_ICONS: Record<string, Icon> = {
   usb: IconUsb,
   "cloud-off": IconCloudOff,
   gauge: IconGauge,
+  tag: IconTag,
 };
 
 const SOCIAL_ICONS: Record<string, Icon> = {
