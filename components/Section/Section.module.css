@@ -1,36 +1,36 @@
 .section {
-  padding: clamp(4rem, 9vw, 7rem) 0;
+  overflow-x: clip;
+  padding-block: var(--space-16);
+}
+
+@media (min-width: 48em) {
+  .section {
+    padding-block: var(--space-24);
+  }
 }
 
 .soft {
   composes: section;
+  border-block: 1px solid var(--lp-hairline);
   background: var(--lp-bg-soft);
 }
 
 .heading {
-  max-width: 680px;
-  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+  max-width: var(--measure-title);
+  margin: 0 auto var(--space-12);
   text-align: center;
 }
 
 .eyebrow {
-  margin-bottom: 0.75rem;
-  color: var(--mantine-primary-color-filled);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.title {
-  font-size: clamp(2rem, 4.5vw, 2.75rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+  color: var(--mantine-color-dimmed);
+  font-size: var(--text-small);
+  font-weight: 600;
 }
 
 .subtitle {
-  margin-top: 1rem;
+  margin-top: var(--space-4);
   color: var(--mantine-color-dimmed);
-  font-size: 1.1rem;
-  line-height: 1.65;
+  font-size: var(--text-lead);
+  line-height: 1.6;
 }

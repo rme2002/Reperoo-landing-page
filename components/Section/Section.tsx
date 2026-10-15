@@ -13,6 +13,10 @@ type SectionProps = {
   children: ReactNode;
 };
 
+export function Eyebrow({ children }: { children: ReactNode }) {
+  return <Text className={classes.eyebrow}>{children}</Text>;
+}
+
 export function Section({
   id,
   cms,
@@ -31,10 +35,8 @@ export function Section({
       <Container size="lg">
         {title && (
           <Reveal className={classes.heading}>
-            {eyebrow && <Text className={classes.eyebrow}>{eyebrow}</Text>}
-            <Title order={2} className={classes.title}>
-              {title}
-            </Title>
+            {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+            <Title order={2}>{title}</Title>
             {subtitle && <Text className={classes.subtitle}>{subtitle}</Text>}
           </Reveal>
         )}
