@@ -14,15 +14,7 @@ export function BrandMark({
   className?: string;
 }) {
   if (logo) {
-    return (
-      <Image
-        src={withBasePath(logo)}
-        alt=""
-        width={size}
-        height={size}
-        style={{ borderRadius: size * 0.24 }}
-      />
-    );
+    return <Image src={withBasePath(logo)} alt="" width={size} height={size} />;
   }
   return (
     <span className={className} style={{ width: size, height: size }}>
