@@ -7,9 +7,18 @@ import { BackToTop } from "@/components/BackToTop";
 import { CmsHintsToggle } from "@/components/CmsHints/CmsHintsToggle";
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
+import { HydrationFlag } from "@/components/HydrationFlag";
 import { Providers } from "@/components/Providers";
 import { site } from "@/lib/content";
 import { withBasePath } from "@/lib/paths";
+
+// Runs before paint: flags JS for the reveal styles (undone if hydration never
+// happens).
+const headScript = `(function(){
+var d=document.documentElement;
+d.setAttribute("data-js","");
+setTimeout(function(){if(!d.hasAttribute("data-hydrated"))d.removeAttribute("data-js");},4000);
+})();`;
 
 export const metadata: Metadata = {
   title: { default: site.seo.title, template: `%s · ${site.name}` },
@@ -33,17 +42,12 @@ export default function RootLayout({
   return (
     <html lang="en" data-mantine-color-scheme="dark" suppressHydrationWarning>
       <head>
-        <noscript>
-          <style>
-            {
-              "[data-reveal] { opacity: 1 !important; transform: none !important; }"
-            }
-          </style>
-        </noscript>
+        <script dangerouslySetInnerHTML={{ __html: headScript }} />
         <link rel="shortcut icon" href={withBasePath("/favicon.svg")} />
       </head>
       <body>
         <Providers>
+          <HydrationFlag />
           {announcement.enabled && announcement.text && (
             <AnnouncementBar
               text={announcement.text}

@@ -161,20 +161,18 @@ dd {
 }
 
 [data-reveal] {
-  opacity: 0;
-  transform: translateY(18px);
   transition:
-    opacity 600ms ease,
-    transform 600ms ease;
+    opacity var(--duration-enter) var(--ease-out),
+    transform var(--duration-enter) var(--ease-out);
 }
 
-[data-reveal="visible"] {
-  opacity: 1;
-  transform: none;
+html[data-js] [data-reveal]:not([data-reveal="visible"]) {
+  opacity: 0;
+  transform: translateY(var(--space-4));
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
+  html[data-js] [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;
