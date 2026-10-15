@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "@mantine/hooks";
+import { useMotionPaused } from "@/lib/motion";
 import { withBasePath } from "@/lib/paths";
 import classes from "./Hero.module.css";
 
@@ -170,6 +171,7 @@ function Chip({ x, y, w, label }: (typeof CHIPS)[number]) {
 export function HeroDemo({ alt }: { alt?: string }) {
   const ref = useRef<SVGSVGElement>(null);
   const reduced = useReducedMotion();
+  const paused = useMotionPaused();
   const [visible, setVisible] = useState(false);
   const [step, setStep] = useState(STILL_STEP);
   const [hidden, setHidden] = useState(false);
@@ -185,14 +187,14 @@ export function HeroDemo({ alt }: { alt?: string }) {
   }, []);
 
   useEffect(() => {
-    if (!visible || reduced) return;
+    if (!visible || reduced || paused) return;
     const last = step === STEPS.length - 1;
     const id = window.setTimeout(
       () => (last ? setHidden(true) : setStep(step + 1)),
       STEP_MS,
     );
     return () => window.clearTimeout(id);
-  }, [step, visible, reduced]);
+  }, [step, visible, reduced, paused]);
 
   useEffect(() => {
     if (!hidden) return;

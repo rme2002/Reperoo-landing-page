@@ -5,6 +5,7 @@ import { featureIcon } from "@/lib/icons";
 import { ButtonLink } from "../ButtonLink";
 import { CmsImage } from "../CmsImage";
 import { CountUp } from "../CountUp";
+import { MotionToggle } from "../MotionToggle";
 import { Eyebrow } from "../Section/Section";
 import { HeroDemo } from "./HeroDemo";
 import classes from "./Hero.module.css";
@@ -54,7 +55,13 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
             data-demo={hero.animatedDemo || undefined}
           >
             {hero.animatedDemo ? (
-              <HeroDemo alt={hero.imageAlt} />
+              <>
+                <HeroDemo alt={hero.imageAlt} />
+                <MotionToggle
+                  pauseLabel="Pause animations"
+                  playLabel="Play animations"
+                />
+              </>
             ) : (
               hero.image && (
                 <CmsImage

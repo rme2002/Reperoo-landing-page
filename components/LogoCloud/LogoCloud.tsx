@@ -22,7 +22,7 @@ export function LogoCloud({ logos }: { logos: HomeContent["logos"] }) {
           gap="xl"
           duration={40000}
           fadeEdgeSize="10%"
-          classNames={{ root: classes.marquee }}
+          classNames={{ root: classes.marquee, content: classes.track }}
         >
           {items.map((name, index) => (
             <span key={`${index}-${name}`} className={classes.item}>

@@ -1,0 +1,13 @@
+.toggle {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 1;
+  box-shadow: var(--lp-elev-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle {
+    display: none;
+  }
+}

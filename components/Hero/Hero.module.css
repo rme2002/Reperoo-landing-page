@@ -112,6 +112,12 @@
   }
 }
 
+:global(html[data-motion="paused"]) .flow,
+:global(html[data-motion="paused"]) .led,
+:global(html[data-motion="paused"]) .float {
+  animation-play-state: paused;
+}
+
 .demoMedia {
   transition: opacity 450ms ease-in-out;
 }

@@ -8,6 +8,7 @@ import { CmsHintsToggle } from "@/components/CmsHints/CmsHintsToggle";
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
 import { HydrationFlag } from "@/components/HydrationFlag";
+import { MOTION_KEY } from "@/lib/motion-key";
 import { Providers } from "@/components/Providers";
 import { site } from "@/lib/content";
 import { withBasePath } from "@/lib/paths";
@@ -16,12 +17,13 @@ const { announcement } = site;
 const showAnnouncement = announcement.enabled && Boolean(announcement.text);
 
 // Runs before paint: flags JS for the reveal styles (undone if hydration never
-// happens), and re-applies a stored announcement dismissal.
+// happens), and re-applies a stored motion pause and announcement dismissal.
 const headScript = `(function(){
 var d=document.documentElement;
 d.setAttribute("data-js","");
 setTimeout(function(){if(!d.hasAttribute("data-hydrated"))d.removeAttribute("data-js");},4000);
 try{
+if(localStorage.getItem(${JSON.stringify(MOTION_KEY)})==="paused")d.setAttribute("data-motion","paused");
 ${
   showAnnouncement
     ? `if(JSON.parse(localStorage.getItem("announcement-dismissed")||"null")===${JSON.stringify(announcement.text).replace(/</g, "\\u003c")})d.setAttribute("data-announcement-dismissed","");`

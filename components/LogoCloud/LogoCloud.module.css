@@ -28,6 +28,10 @@
   white-space: nowrap;
 }
 
+:global(html[data-motion="paused"]) .track {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee {
     display: none;

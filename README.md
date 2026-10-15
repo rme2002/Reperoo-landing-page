@@ -55,3 +55,4 @@ Customers without a GitHub account can be invited by email as collaborators. The
 
 - The waitlist form posts to **Home page › Waitlist › Form endpoint URL**, from a form service such as Formspree or Getform. While that is empty, the live site shows the closed message instead of the form, and development simulates a successful sign-up.
 - The site is fully static: `next build` prerenders every page, so there is no server to run.
+- Animations stop for visitors who prefer reduced motion, and the hero has a pause button that is remembered per browser.
