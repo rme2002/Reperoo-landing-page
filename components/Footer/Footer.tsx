@@ -7,6 +7,8 @@ import classes from "./Footer.module.css";
 
 export function Footer() {
   const { footer } = site;
+  const columns = footer.columns ?? [];
+  const socials = footer.socials ?? [];
 
   return (
     <footer className={classes.footer} data-cms="Site settings › Footer">
@@ -25,11 +27,11 @@ export function Footer() {
             {footer.text}
           </Text>
           <Group gap="xs" mt="lg">
-            {footer.socials.map((social) => {
+            {socials.map((social, index) => {
               const Icon = socialIcon(social.platform);
               return (
                 <ActionIcon
-                  key={social.platform + social.href}
+                  key={`${index}-${social.href}`}
                   component="a"
                   href={social.href}
                   target="_blank"
@@ -45,14 +47,14 @@ export function Footer() {
           </Group>
         </div>
 
-        {footer.columns.map((column) => (
-          <div key={column.title}>
+        {columns.map((column, index) => (
+          <div key={`${index}-${column.title}`}>
             <Text fw={700} size="sm" mb="sm">
               {column.title}
             </Text>
             <ul className={classes.links}>
-              {column.links.map((link) => (
-                <li key={link.href + link.label}>
+              {(column.links ?? []).map((link, linkIndex) => (
+                <li key={`${linkIndex}-${link.href}`}>
                   <Link href={link.href} className={classes.link}>
                     {link.label}
                   </Link>

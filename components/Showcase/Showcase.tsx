@@ -15,9 +15,9 @@ export function Showcase({ showcase }: { showcase: HomeContent["showcase"] }) {
       {...showcase}
     >
       <div className={classes.rows}>
-        {showcase.items.map((item, index) => (
+        {(showcase.items ?? []).map((item, index) => (
           <div
-            key={item.title}
+            key={`${index}-${item.title}`}
             className={classes.row}
             data-flip={index % 2 === 1 || undefined}
           >
@@ -29,7 +29,7 @@ export function Showcase({ showcase }: { showcase: HomeContent["showcase"] }) {
               <Text c="dimmed" mt="sm" size="lg" lh={1.65}>
                 {item.text}
               </Text>
-              {item.bullets.length > 0 && (
+              {(item.bullets ?? []).length > 0 && (
                 <List
                   mt="lg"
                   spacing="xs"

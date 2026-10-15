@@ -6,6 +6,8 @@ import { CmsImage } from "../CmsImage";
 import classes from "./Hero.module.css";
 
 export function Hero({ hero }: { hero: HomeContent["hero"] }) {
+  const stats = hero.stats ?? [];
+
   return (
     <section className={classes.hero} data-cms="Home page › Hero">
       <Container
@@ -50,10 +52,10 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
               </ButtonLink>
             )}
           </Group>
-          {hero.stats.length > 0 && (
+          {stats.length > 0 && (
             <dl className={classes.stats}>
-              {hero.stats.map((stat) => (
-                <div key={stat.label}>
+              {stats.map((stat, index) => (
+                <div key={`${index}-${stat.label}`}>
                   <dt className={classes.statLabel}>{stat.label}</dt>
                   <dd className={classes.statValue}>{stat.value}</dd>
                 </div>

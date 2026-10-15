@@ -9,10 +9,10 @@ export function Features({ features }: { features: HomeContent["features"] }) {
   return (
     <Section id="features" cms="Home page › Features" {...features}>
       <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
-        {features.items.map((feature, index) => {
+        {(features.items ?? []).map((feature, index) => {
           const Icon = featureIcon(feature.icon);
           return (
-            <Reveal key={feature.title} delay={(index % 3) * 100}>
+            <Reveal key={`${index}-${feature.title}`} delay={(index % 3) * 100}>
               <div className={classes.card}>
                 <ThemeIcon size={44} radius="md" variant="light">
                   <Icon size={22} />

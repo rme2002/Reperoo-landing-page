@@ -3,13 +3,14 @@ import type { HomeContent } from "@/lib/content";
 import classes from "./LogoCloud.module.css";
 
 export function LogoCloud({ logos }: { logos: HomeContent["logos"] }) {
+  const items = logos.items ?? [];
   return (
     <section className={classes.section} data-cms="Home page › Logo strip">
       <Container size="lg">
         {logos.title && <Text className={classes.title}>{logos.title}</Text>}
         <Marquee pauseOnHover gap="3rem" duration={30000}>
-          {logos.items.map((name) => (
-            <span key={name} className={classes.logo}>
+          {items.map((name, index) => (
+            <span key={`${index}-${name}`} className={classes.logo}>
               {name}
             </span>
           ))}

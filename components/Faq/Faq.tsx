@@ -15,10 +15,10 @@ export function Faq({ faq }: { faq: HomeContent["faq"] }) {
     <Section id="faq" cms="Home page › FAQ" {...faq}>
       <Reveal className={classes.wrap}>
         <Accordion variant="separated" radius="md" chevronPosition="right">
-          {faq.items.map((item) => (
+          {(faq.items ?? []).map((item, index) => (
             <AccordionItem
-              key={item.question}
-              value={item.question}
+              key={`faq-${index}`}
+              value={`faq-${index}`}
               className={classes.item}
             >
               <AccordionControl>

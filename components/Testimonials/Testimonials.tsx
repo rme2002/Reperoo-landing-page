@@ -14,8 +14,12 @@ export function Testimonials({
   return (
     <Section id="testimonials" cms="Home page › Testimonials" {...testimonials}>
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">
-        {testimonials.items.map((item, index) => (
-          <Reveal key={item.name} delay={index * 100} className={classes.cell}>
+        {(testimonials.items ?? []).map((item, index) => (
+          <Reveal
+            key={`${index}-${item.name}`}
+            delay={index * 100}
+            className={classes.cell}
+          >
             <figure className={classes.card}>
               <IconQuote size={28} className={classes.quoteIcon} />
               <Text component="blockquote" className={classes.quote}>

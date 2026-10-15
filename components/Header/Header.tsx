@@ -18,9 +18,9 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
   const [opened, { close, toggle }] = useDisclosure(false);
   const [scroll] = useWindowScroll();
 
-  const links = navigation.map((item) => (
+  const links = navigation.map((item, index) => (
     <Link
-      key={item.href + item.label}
+      key={`${index}-${item.href}`}
       href={item.href}
       className={classes.link}
       onClick={close}
