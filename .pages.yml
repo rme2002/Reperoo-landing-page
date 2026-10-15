@@ -18,6 +18,42 @@ components:
       - name: href
         component: href
 
+  eyebrow:
+    label: Small label above the title
+    type: string
+
+  subtitle:
+    label: Text under the title
+    type: text
+
+  enabled:
+    label: Show this section
+    type: boolean
+
+  icon:
+    type: select
+    options:
+      values:
+        - { name: shield, label: Shield }
+        - { name: photo, label: Photo }
+        - { name: live-photo, label: Live Photo }
+        - { name: folder, label: Folder }
+        - { name: usb, label: USB }
+        - { name: cloud-off, label: No cloud }
+        - { name: gauge, label: Speed }
+        - { name: layout, label: Board }
+        - { name: users, label: People }
+        - { name: bolt, label: Lightning }
+        - { name: chart, label: Chart }
+        - { name: lock, label: Lock }
+        - { name: device, label: Phone }
+        - { name: heart, label: Heart }
+        - { name: rocket, label: Rocket }
+        - { name: clock, label: Clock }
+        - { name: leaf, label: Leaf }
+        - { name: palette, label: Palette }
+        - { name: sparkles, label: Sparkles }
+
 content:
   - name: home
     label: Home page
@@ -30,8 +66,7 @@ content:
         type: object
         fields:
           - name: eyebrow
-            label: Small label above the title
-            type: string
+            component: eyebrow
           - name: title
             type: string
             required: true
@@ -68,8 +103,7 @@ content:
         type: object
         fields:
           - name: enabled
-            label: Show this section
-            type: boolean
+            component: enabled
           - name: title
             type: string
           - name: items
@@ -82,15 +116,13 @@ content:
         type: object
         fields:
           - name: enabled
-            label: Show this section
-            type: boolean
+            component: enabled
           - name: eyebrow
-            label: Small label above the title
-            type: string
+            component: eyebrow
           - name: title
             type: string
           - name: subtitle
-            type: text
+            component: subtitle
           - name: items
             label: Features
             type: object
@@ -100,28 +132,7 @@ content:
                 summary: "{title}"
             fields:
               - name: icon
-                type: select
-                options:
-                  values:
-                    - { name: shield, label: Shield }
-                    - { name: photo, label: Photo }
-                    - { name: live-photo, label: Live Photo }
-                    - { name: folder, label: Folder }
-                    - { name: usb, label: USB }
-                    - { name: cloud-off, label: No cloud }
-                    - { name: gauge, label: Speed }
-                    - { name: layout, label: Board }
-                    - { name: users, label: People }
-                    - { name: bolt, label: Lightning }
-                    - { name: chart, label: Chart }
-                    - { name: lock, label: Lock }
-                    - { name: device, label: Phone }
-                    - { name: heart, label: Heart }
-                    - { name: rocket, label: Rocket }
-                    - { name: clock, label: Clock }
-                    - { name: leaf, label: Leaf }
-                    - { name: palette, label: Palette }
-                    - { name: sparkles, label: Sparkles }
+                component: icon
               - name: title
                 type: string
               - name: description
@@ -132,11 +143,9 @@ content:
         type: object
         fields:
           - name: enabled
-            label: Show this section
-            type: boolean
+            component: enabled
           - name: eyebrow
-            label: Small label above the title
-            type: string
+            component: eyebrow
           - name: title
             type: string
           - name: items
@@ -165,11 +174,9 @@ content:
         type: object
         fields:
           - name: enabled
-            label: Show this section
-            type: boolean
+            component: enabled
           - name: eyebrow
-            label: Small label above the title
-            type: string
+            component: eyebrow
           - name: title
             type: string
           - name: items
@@ -196,15 +203,13 @@ content:
         type: object
         fields:
           - name: enabled
-            label: Show this section
-            type: boolean
+            component: enabled
           - name: eyebrow
-            label: Small label above the title
-            type: string
+            component: eyebrow
           - name: title
             type: string
           - name: subtitle
-            type: text
+            component: subtitle
           - name: currency
             type: string
           - name: note
@@ -251,11 +256,9 @@ content:
         type: object
         fields:
           - name: enabled
-            label: Show this section
-            type: boolean
+            component: enabled
           - name: eyebrow
-            label: Small label above the title
-            type: string
+            component: eyebrow
           - name: title
             type: string
           - name: items
@@ -276,11 +279,9 @@ content:
         type: object
         fields:
           - name: enabled
-            label: Show this section
-            type: boolean
+            component: enabled
           - name: eyebrow
-            label: Small label above the title
-            type: string
+            component: eyebrow
           - name: title
             type: string
           - name: count
@@ -312,11 +313,9 @@ content:
         type: object
         fields:
           - name: enabled
-            label: Show this section
-            type: boolean
+            component: enabled
           - name: eyebrow
-            label: Small label above the title
-            type: string
+            component: eyebrow
           - name: title
             type: string
           - name: text
