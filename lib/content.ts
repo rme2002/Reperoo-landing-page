@@ -123,11 +123,11 @@ function readPost(file: string): Post {
   );
   return {
     slug: file.replace(/\.md$/, ""),
-    title: data.title ?? "Untitled",
+    title: data.title || "Untitled",
     date: toIsoDate(data.date),
-    author: data.author,
-    excerpt: data.excerpt,
-    cover: data.cover,
+    author: data.author || undefined,
+    excerpt: data.excerpt || undefined,
+    cover: data.cover || undefined,
     html: marked
       .parse(content, { async: false })
       .replace(/(src|href)="\/(?!\/)/g, `$1="${withBasePath("/")}`),
@@ -135,6 +135,7 @@ function readPost(file: string): Post {
 }
 
 export function getPosts(): Post[] {
+  if (!fs.existsSync(POSTS_DIR)) return [];
   return fs
     .readdirSync(POSTS_DIR)
     .filter((file) => file.endsWith(".md"))

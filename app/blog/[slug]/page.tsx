@@ -9,8 +9,14 @@ import classes from "../blog.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return getPosts().map((post) => ({ slug: post.slug }));
+  const posts = getPosts();
+  // An empty list fails the static export, so emit one route that 404s.
+  return posts.length
+    ? posts.map((post) => ({ slug: post.slug }))
+    : [{ slug: "_" }];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -28,10 +34,15 @@ export default async function PostPage({ params }: Props) {
         <Link href="/blog" className={classes.back}>
           <IconArrowLeft size={16} aria-hidden /> All posts
         </Link>
-        <Text c="dimmed" fw={600} size="sm" mt="xl">
-          {formatDate(post.date)}
-          {post.author && ` · ${post.author}`}
-        </Text>
+        {(post.date || post.author) && (
+          <Text c="dimmed" size="sm" mt="xl" mb="xs">
+            {post.date && (
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+            )}
+            {post.date && post.author && " · "}
+            {post.author}
+          </Text>
+        )}
         <Title order={1}>{post.title}</Title>
         {post.excerpt && <Text className={classes.lead}>{post.excerpt}</Text>}
       </Container>
