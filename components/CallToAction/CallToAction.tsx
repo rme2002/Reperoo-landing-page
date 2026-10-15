@@ -1,16 +1,13 @@
 import { Container, Text, Title } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
-import type { HomeContent } from "@/lib/content";
+import type { CtaContent } from "@/lib/content";
 import { ButtonLink } from "../ButtonLink";
 import { Reveal } from "../Reveal";
 import classes from "./CallToAction.module.css";
 
-export function CallToAction({ cta }: { cta: HomeContent["cta"] }) {
+export function CallToAction({ cta, cms }: { cta: CtaContent; cms: string }) {
   return (
-    <section
-      className={classes.section}
-      data-cms="Home page › Call to action banner"
-    >
+    <section className={classes.section} data-cms={cms}>
       <Container size="lg">
         <Reveal className={classes.banner}>
           <Title order={2} c="inherit">

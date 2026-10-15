@@ -535,6 +535,22 @@ content:
                 type: string
           - name: copyright
             type: string
+      - name: postCta
+        label: Call to action under blog posts
+        type: object
+        fields:
+          - name: enabled
+            label: Show it under every post
+            type: boolean
+          - name: title
+            type: string
+          - name: text
+            type: text
+          - name: buttonLabel
+            type: string
+          - name: buttonHref
+            label: Button link
+            component: href
       - name: blog
         label: Blog page
         type: object

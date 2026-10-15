@@ -60,7 +60,10 @@ export default function HomePage() {
       {sections.map((section, index) => (
         <Fragment key={section.key}>
           {section.key === "faq" && home.cta.enabled && (
-            <CallToAction cta={home.cta} />
+            <CallToAction
+              cta={home.cta}
+              cms="Home page › Call to action banner"
+            />
           )}
           {section.render(index % 2 === 1)}
         </Fragment>

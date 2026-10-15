@@ -8,6 +8,14 @@ import { withBasePath } from "./paths";
 
 export type Link = { label: string; href: string };
 
+export type CtaContent = {
+  enabled: boolean;
+  title: string;
+  text?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+};
+
 export type SiteContent = {
   name: string;
   logo?: string;
@@ -26,6 +34,7 @@ export type SiteContent = {
     socials: { platform: string; href: string }[];
     copyright: string;
   };
+  postCta: CtaContent;
   blog: {
     title: string;
     lead?: string;
@@ -95,13 +104,7 @@ export type HomeContent = {
     items: { question: string; answer: string; link?: Link }[];
   };
   blog: Section & { count: number };
-  cta: {
-    enabled: boolean;
-    title: string;
-    text?: string;
-    buttonLabel?: string;
-    buttonHref?: string;
-  };
+  cta: CtaContent;
   contact: Section & {
     text?: string;
     email?: string;

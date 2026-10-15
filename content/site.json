@@ -44,6 +44,13 @@
     "socials": [],
     "copyright": "© 2026 Reperoo. All rights reserved."
   },
+  "postCta": {
+    "enabled": true,
+    "title": "Reperoo is coming to the App Store",
+    "text": "Copy or move your iPhone photos to an SSD or hard drive, no computer needed. €3.50, once.",
+    "buttonLabel": "Join the waitlist",
+    "buttonHref": "/#contact"
+  },
   "blog": {
     "title": "Blog",
     "lead": "Guides and updates on getting your photos off your iPhone.",

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container, Text, Title, Typography } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
+import { CallToAction } from "@/components/CallToAction/CallToAction";
 import { CmsImage } from "@/components/CmsImage";
 import { formatDate, getPost, getPosts, site } from "@/lib/content";
 import classes from "../blog.module.css";
@@ -29,40 +30,48 @@ export default async function PostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <article className={classes.page} data-cms={`Blog posts › ${post.title}`}>
-      <Container size={760}>
-        <Link href="/blog" className={classes.back}>
-          <IconArrowLeft size={16} aria-hidden /> {site.blog.allPostsLabel}
-        </Link>
-        {(post.date || post.author) && (
-          <Text c="dimmed" size="sm" mt="xl" mb="xs">
-            {post.date && (
-              <time dateTime={post.date}>{formatDate(post.date)}</time>
-            )}
-            {post.date && post.author && " · "}
-            {post.author}
-          </Text>
-        )}
-        <Title order={1}>{post.title}</Title>
-        {post.excerpt && <Text className={classes.lead}>{post.excerpt}</Text>}
-      </Container>
-      {post.cover && (
-        <Container size={960} mt="xl">
-          <div className={classes.cover}>
-            <CmsImage
-              src={post.cover}
-              alt=""
-              sizes="(max-width: 1000px) 100vw, 960px"
-              priority
-            />
-          </div>
+    <>
+      <article className={classes.page} data-cms={`Blog posts › ${post.title}`}>
+        <Container size={760}>
+          <Link href="/blog" className={classes.back}>
+            <IconArrowLeft size={16} aria-hidden /> {site.blog.allPostsLabel}
+          </Link>
+          {(post.date || post.author) && (
+            <Text c="dimmed" size="sm" mt="xl" mb="xs">
+              {post.date && (
+                <time dateTime={post.date}>{formatDate(post.date)}</time>
+              )}
+              {post.date && post.author && " · "}
+              {post.author}
+            </Text>
+          )}
+          <Title order={1}>{post.title}</Title>
+          {post.excerpt && <Text className={classes.lead}>{post.excerpt}</Text>}
         </Container>
+        {post.cover && (
+          <Container size={960} mt="xl">
+            <div className={classes.cover}>
+              <CmsImage
+                src={post.cover}
+                alt=""
+                sizes="(max-width: 1000px) 100vw, 960px"
+                priority
+              />
+            </div>
+          </Container>
+        )}
+        <Container size={760} mt="xl">
+          <Typography className={classes.body}>
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          </Typography>
+        </Container>
+      </article>
+      {site.postCta.enabled && (
+        <CallToAction
+          cta={site.postCta}
+          cms="Site settings › Call to action under blog posts"
+        />
       )}
-      <Container size={760} mt="xl">
-        <Typography className={classes.body}>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </Typography>
-      </Container>
-    </article>
+    </>
   );
 }
