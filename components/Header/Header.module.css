@@ -2,15 +2,16 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--lp-header-bg);
-  backdrop-filter: saturate(180%) blur(16px);
+  background-color: var(--mantine-color-body);
   border-bottom: 1px solid transparent;
   transition:
+    background-color var(--duration-fast) var(--ease-out),
     border-color var(--duration-fast) var(--ease-out),
     box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .header[data-scrolled] {
+  background-color: var(--lp-surface);
   border-bottom-color: var(--lp-hairline);
   box-shadow: 0 16px 32px -20px rgba(0, 0, 0, 0.9);
 }

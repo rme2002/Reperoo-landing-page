@@ -34,7 +34,6 @@
   --lp-fill: #2e2320;
   --lp-on-ink: #f6efec;
   --lp-on-ink-muted: #b0a09a;
-  --lp-header-bg: rgba(23, 17, 15, 0.72);
   --lp-hairline: rgba(255, 255, 255, 0.06);
   --lp-control-border: var(--mantine-color-dark-3);
   --lp-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 45%);
