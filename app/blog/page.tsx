@@ -8,6 +8,7 @@ import classes from "./blog.module.css";
 export const metadata: Metadata = {
   title: site.blog.title,
   description: site.blog.description,
+  alternates: { canonical: "./" },
 };
 
 export default function BlogPage() {

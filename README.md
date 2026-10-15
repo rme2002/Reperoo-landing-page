@@ -35,12 +35,12 @@ The **Show editable areas** button outlines each region and names the CMS entry 
 1. In the repository on GitHub, open **Settings → Pages** and set **Source** to **GitHub Actions**.
 2. Open **Actions → Deploy to GitHub Pages** and run it (or push to `main`).
 
-The site is served from https://romnickchurned.github.io/Reperoo-landing-page/. The workflow passes that `/Reperoo-landing-page` prefix to the build as `PAGES_BASE_PATH`; with a custom domain the prefix is empty and nothing else changes.
+The site is served from https://romnickchurned.github.io/Reperoo-landing-page/. The workflow passes that `/Reperoo-landing-page` prefix to the build as `PAGES_BASE_PATH`, and the full address as `SITE_URL` for canonical and share links. With a custom domain the prefix is empty and nothing else changes.
 
 To check a production build locally, under the same prefix:
 
 ```bash
-PAGES_BASE_PATH=/Reperoo-landing-page npm run build
+PAGES_BASE_PATH=/Reperoo-landing-page SITE_URL=https://romnickchurned.github.io/Reperoo-landing-page npm run build
 ```
 
 ## Connect Pages CMS

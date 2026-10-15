@@ -8,6 +8,7 @@ const privacy = getPrivacy();
 export const metadata: Metadata = {
   title: privacy.title,
   description: privacy.description,
+  alternates: { canonical: "./" },
 };
 
 export default function PrivacyPage() {

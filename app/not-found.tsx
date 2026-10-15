@@ -5,7 +5,10 @@ import { site } from "@/lib/content";
 
 const { notFound } = site;
 
-export const metadata: Metadata = { title: notFound.title };
+export const metadata: Metadata = {
+  title: notFound.title,
+  alternates: { canonical: null },
+};
 
 export default function NotFound() {
   return (

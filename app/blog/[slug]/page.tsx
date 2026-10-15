@@ -6,6 +6,7 @@ import { IconArrowLeft } from "@tabler/icons-react";
 import { CallToAction } from "@/components/CallToAction/CallToAction";
 import { CmsImage } from "@/components/CmsImage";
 import { formatDate, getPost, getPosts, site } from "@/lib/content";
+import { baseOpenGraph, ogImage } from "@/lib/seo";
 import classes from "../blog.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -22,7 +23,22 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPost((await params).slug);
-  return post ? { title: post.title, description: post.excerpt } : {};
+  if (!post) return {};
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: "./" },
+    openGraph: {
+      ...baseOpenGraph,
+      type: "article",
+      url: "./",
+      title: post.title,
+      description: post.excerpt,
+      publishedTime: post.date || undefined,
+      authors: post.author ? [post.author] : undefined,
+      images: [ogImage],
+    },
+  };
 }
 
 export default async function PostPage({ params }: Props) {

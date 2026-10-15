@@ -12,6 +12,7 @@ import { MOTION_KEY } from "@/lib/motion-key";
 import { Providers } from "@/components/Providers";
 import { site } from "@/lib/content";
 import { withBasePath } from "@/lib/paths";
+import { baseOpenGraph, ogImage, siteUrl } from "@/lib/seo";
 
 const { announcement, ui } = site;
 const showAnnouncement = announcement.enabled && Boolean(announcement.text);
@@ -33,8 +34,12 @@ ${
 })();`;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: { default: site.seo.title, template: `%s · ${site.name}` },
   description: site.seo.description,
+  alternates: { canonical: "./" },
+  openGraph: { ...baseOpenGraph, url: "./", images: [ogImage] },
+  twitter: { card: "summary_large_image", images: [ogImage] },
   icons: {
     icon: { url: withBasePath("/icon.svg"), type: "image/svg+xml" },
     apple: withBasePath("/apple-touch-icon.png"),
