@@ -6,6 +6,7 @@ type CmsImageProps = {
   alt?: string;
   sizes: string;
   priority?: boolean;
+  fit?: "cover" | "contain";
   className?: string;
 };
 
@@ -15,6 +16,7 @@ export function CmsImage({
   alt = "",
   sizes,
   priority,
+  fit = "cover",
   className,
 }: CmsImageProps) {
   return (
@@ -25,7 +27,7 @@ export function CmsImage({
       sizes={sizes}
       priority={priority}
       className={className}
-      style={{ objectFit: "cover" }}
+      style={{ objectFit: fit }}
     />
   );
 }

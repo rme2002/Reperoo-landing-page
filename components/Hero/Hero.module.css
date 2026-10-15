@@ -62,6 +62,12 @@
   line-height: 1.6;
 }
 
+.media {
+  position: relative;
+  aspect-ratio: 1010 / 790;
+  filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.55));
+}
+
 .stats {
   max-width: 520px;
   margin: 2.75rem 0 0;
@@ -85,19 +91,6 @@
 .statLabel {
   color: var(--mantine-color-dimmed);
   font-size: 0.9rem;
-}
-
-.frame {
-  overflow: hidden;
-  border: 1px solid var(--mantine-color-default-border);
-  border-radius: 16px;
-  background: var(--lp-surface);
-  box-shadow: var(--lp-shadow);
-}
-
-.imageWrap {
-  position: relative;
-  aspect-ratio: 4 / 3;
 }
 
 @media (max-width: 61.99em) {

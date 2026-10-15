@@ -31,12 +31,19 @@
 
 .media {
   position: relative;
-  overflow: hidden;
-  aspect-ratio: 5 / 4;
-  border: 1px solid var(--mantine-color-default-border);
-  border-radius: 16px;
-  background: var(--lp-surface);
-  box-shadow: var(--lp-shadow);
+  justify-self: center;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 660 / 780;
+  filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.55));
+}
+
+.media::before {
+  content: "";
+  position: absolute;
+  inset: 10% 5%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--lp-glow), transparent);
 }
 
 @media (max-width: 860px) {
@@ -46,5 +53,9 @@
 
   .row[data-flip] > :first-child {
     order: 0;
+  }
+
+  .media {
+    max-width: 420px;
   }
 }

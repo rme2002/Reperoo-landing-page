@@ -56,16 +56,13 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
 
         {hero.image && (
           <div className={classes.media}>
-            <div className={classes.frame}>
-              <div className={classes.imageWrap}>
-                <CmsImage
-                  src={hero.image}
-                  alt={hero.imageAlt}
-                  sizes="(max-width: 900px) 100vw, 560px"
-                  priority
-                />
-              </div>
-            </div>
+            <CmsImage
+              src={hero.image}
+              alt={hero.imageAlt}
+              sizes="(max-width: 1000px) 100vw, 560px"
+              fit="contain"
+              priority
+            />
           </div>
         )}
       </Container>

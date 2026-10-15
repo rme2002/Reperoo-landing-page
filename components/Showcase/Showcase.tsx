@@ -56,7 +56,8 @@ export function Showcase({
                 <CmsImage
                   src={item.image}
                   alt={item.imageAlt}
-                  sizes="(max-width: 860px) 100vw, 540px"
+                  sizes="(max-width: 860px) 420px, 520px"
+                  fit="contain"
                 />
               </Reveal>
             )}
