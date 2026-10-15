@@ -40,10 +40,7 @@
         ]
       }
     ],
-    "socials": [
-      { "platform": "instagram", "href": "https://www.instagram.com" },
-      { "platform": "x", "href": "https://x.com" }
-    ],
+    "socials": [],
     "copyright": "© 2026 Reperoo. All rights reserved."
   }
 }

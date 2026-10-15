@@ -449,6 +449,7 @@ content:
             label: Social media
             type: object
             list: true
+            description: Leave empty until the profiles exist.
             fields:
               - name: platform
                 type: select

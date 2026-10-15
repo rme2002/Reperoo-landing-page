@@ -1,45 +1,49 @@
 .footer {
-  border-top: 1px solid var(--mantine-color-default-border);
-  background: var(--lp-bg-soft);
+  border-top: 1px solid var(--lp-hairline);
+  background: var(--lp-bg-deep);
 }
 
 .inner {
-  padding: 3.5rem 0 2.5rem;
+  padding-block: var(--space-12) var(--space-8);
   display: grid;
-  grid-template-columns: 2fr repeat(4, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: minmax(0, 2fr) repeat(var(--footer-cols, 1), minmax(0, 1fr));
+  gap: var(--space-8);
 }
 
 .brand {
+  min-height: var(--tap);
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: var(--space-3);
   color: var(--mantine-color-text);
-  font-weight: 800;
+  font-weight: 700;
   text-decoration: none;
 }
 
 .brandMark {
-  border-radius: 7px;
+  border-radius: var(--mantine-radius-sm);
   display: grid;
   place-items: center;
   background: var(--mantine-primary-color-filled);
   color: var(--mantine-primary-color-contrast);
-  font-size: 0.9rem;
+  font-size: var(--text-small);
 }
 
 .links {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
-  gap: 0.5rem;
 }
 
 .link {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
   color: var(--mantine-color-dimmed);
-  font-size: 0.9rem;
+  font-size: var(--text-small);
   text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .link:hover {
@@ -47,11 +51,11 @@
 }
 
 .bottom {
-  padding: 1.25rem 0 1.75rem;
-  border-top: 1px solid var(--mantine-color-default-border);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--lp-hairline);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 48em) {
   .inner {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

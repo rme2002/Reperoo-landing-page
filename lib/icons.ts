@@ -59,4 +59,13 @@ const SOCIAL_ICONS: Record<string, Icon> = {
 
 export const featureIcon = (name: string) =>
   FEATURE_ICONS[name] ?? IconSparkles;
+const SOCIAL_LABELS: Record<string, string> = {
+  linkedin: "LinkedIn",
+  instagram: "Instagram",
+  facebook: "Facebook",
+  x: "X",
+  youtube: "YouTube",
+};
+
 export const socialIcon = (name: string) => SOCIAL_ICONS[name] ?? IconLink;
+export const socialLabel = (name: string) => SOCIAL_LABELS[name] ?? name;
