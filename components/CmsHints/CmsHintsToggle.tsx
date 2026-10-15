@@ -14,16 +14,17 @@ export function CmsHintsToggle() {
 
   return (
     <Affix
-      position={{ bottom: 20, left: "50%" }}
+      position={{ bottom: 24, left: "50%" }}
+      zIndex={150}
       style={{ transform: "translateX(-50%)" }}
     >
       <Button
         variant={active ? "filled" : "default"}
         radius="xl"
-        size="xs"
         leftSection={
-          active ? <IconPencilOff size={14} /> : <IconPencil size={14} />
+          active ? <IconPencilOff size={16} /> : <IconPencil size={16} />
         }
+        style={{ boxShadow: "var(--lp-elev-3)" }}
         onClick={() => setActive((value) => !value)}
       >
         {active ? "Hide editable areas" : "Show editable areas"}

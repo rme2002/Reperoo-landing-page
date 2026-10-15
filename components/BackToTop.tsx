@@ -8,17 +8,18 @@ export function BackToTop() {
   const [scroll, scrollTo] = useWindowScroll();
 
   return (
-    <Affix position={{ bottom: 20, right: 20 }}>
+    <Affix position={{ bottom: 24, right: 24 }} zIndex={150}>
       <Transition transition="slide-up" mounted={scroll.y > 600}>
         {(styles) => (
           <ActionIcon
-            style={styles}
+            style={{ ...styles, boxShadow: "var(--lp-elev-3)" }}
+            variant="default"
             size="xl"
             radius="xl"
             aria-label="Back to top"
             onClick={() => scrollTo({ y: 0 })}
           >
-            <IconArrowUp size={20} />
+            <IconArrowUp size={20} stroke={1.75} />
           </ActionIcon>
         )}
       </Transition>
