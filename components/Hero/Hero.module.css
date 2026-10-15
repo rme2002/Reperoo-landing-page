@@ -73,6 +73,67 @@
   filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.55));
 }
 
+.demo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+}
+
+.flow {
+  stroke-dasharray: 2 22;
+  animation: flow 1s linear infinite;
+}
+
+.led {
+  animation: blink 1.4s ease-in-out infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.demoMedia {
+  transition: opacity 450ms ease-in-out;
+}
+
+.demoContent {
+  transition: opacity 400ms ease-in-out;
+}
+
+.demoTick {
+  animation: lp-enter var(--duration-enter) var(--ease-out) both;
+}
+
+.demoDigits {
+  font-variant-numeric: tabular-nums;
+}
+
+.demoBar {
+  transform-box: fill-box;
+  transform-origin: left center;
+  transition: transform 900ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
 .band {
   position: relative;
   margin: var(--space-16) 0 0;
@@ -172,12 +233,27 @@
   .stat {
     padding: var(--space-6);
   }
+
+  .media[data-demo] {
+    aspect-ratio: 730 / 790;
+    overflow: hidden;
+  }
+
+  .media[data-demo] .demo {
+    inset: 0 auto auto -38.4%;
+    width: 138.4%;
+    height: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .copy > *,
   .media,
-  .band {
+  .band,
+  .demoTick,
+  .flow,
+  .led,
+  .float {
     animation: none;
   }
 }

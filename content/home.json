@@ -13,6 +13,7 @@
     },
     "image": "/images/reperoo-hero.svg",
     "imageAlt": "An iPhone copying photos to a USB-C SSD in Reperoo",
+    "animatedDemo": true,
     "stats": [
       {
         "icon": "shield",

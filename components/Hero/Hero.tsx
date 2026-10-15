@@ -6,17 +6,19 @@ import { ButtonLink } from "../ButtonLink";
 import { CmsImage } from "../CmsImage";
 import { CountUp } from "../CountUp";
 import { Eyebrow } from "../Section/Section";
+import { HeroDemo } from "./HeroDemo";
 import classes from "./Hero.module.css";
 
 export function Hero({ hero }: { hero: HomeContent["hero"] }) {
   const stats = hero.stats ?? [];
+  const showMedia = Boolean(hero.image || hero.animatedDemo);
 
   return (
     <section className={classes.hero} data-cms="Home page › Hero">
       <Container
         size="lg"
         className={classes.grid}
-        data-single={!hero.image || undefined}
+        data-single={!showMedia || undefined}
       >
         <div className={classes.copy}>
           {hero.eyebrow && <Eyebrow>{hero.eyebrow}</Eyebrow>}
@@ -46,15 +48,24 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
           </Group>
         </div>
 
-        {hero.image && (
-          <div className={classes.media}>
-            <CmsImage
-              src={hero.image}
-              alt={hero.imageAlt}
-              sizes="(max-width: 1000px) 100vw, 560px"
-              fit="contain"
-              priority
-            />
+        {showMedia && (
+          <div
+            className={classes.media}
+            data-demo={hero.animatedDemo || undefined}
+          >
+            {hero.animatedDemo ? (
+              <HeroDemo alt={hero.imageAlt} />
+            ) : (
+              hero.image && (
+                <CmsImage
+                  src={hero.image}
+                  alt={hero.imageAlt}
+                  sizes="(max-width: 1000px) 100vw, 560px"
+                  fit="contain"
+                  priority
+                />
+              )
+            )}
           </div>
         )}
       </Container>

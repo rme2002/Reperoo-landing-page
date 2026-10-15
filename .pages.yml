@@ -81,10 +81,15 @@ content:
             component: link
           - name: image
             type: image
+            description: Shown when the animated demo is off.
           - name: imageAlt
             label: Image description
             type: string
-            description: Describes the image for screen readers and search engines.
+            description: Describes the image or demo for screen readers and search engines.
+          - name: animatedDemo
+            label: Show the animated app demo
+            type: boolean
+            description: Plays a live copy on the phone instead of showing the image above.
           - name: stats
             label: Key numbers
             type: object
