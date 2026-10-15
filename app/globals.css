@@ -105,6 +105,40 @@ dd {
   text-wrap: pretty;
 }
 
+main:focus {
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--mantine-primary-color-filled);
+  outline-offset: 2px;
+}
+
+.lp-skip:not(:focus-visible) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.lp-skip:focus-visible {
+  position: fixed;
+  top: var(--space-2);
+  left: var(--space-4);
+  z-index: 301;
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+  padding-inline: var(--space-4);
+  border-radius: var(--mantine-radius-xl);
+  background: var(--lp-surface-raised);
+  color: var(--lp-on-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
 .mantine-Container-root {
   padding-inline: var(--space-4);
 }

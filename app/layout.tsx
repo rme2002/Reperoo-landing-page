@@ -53,6 +53,9 @@ export default function RootLayout({
       <body>
         <Providers>
           <HydrationFlag />
+          <a href="#main" className="lp-skip">
+            Skip to content
+          </a>
           {announcement.enabled && announcement.text && (
             <AnnouncementBar
               text={announcement.text}
@@ -66,7 +69,9 @@ export default function RootLayout({
             navigation={site.navigation}
             cta={site.navCta}
           />
-          <main>{children}</main>
+          <main id="main" tabIndex={-1}>
+            {children}
+          </main>
           <Footer />
           <BackToTop />
           <CmsHintsToggle />
