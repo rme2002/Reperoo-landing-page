@@ -1,8 +1,8 @@
-import { Group, Text, ThemeIcon } from "@mantine/core";
+import { Text, Title } from "@mantine/core";
 import { IconMail, IconMapPin, IconPhone } from "@tabler/icons-react";
 import type { HomeContent } from "@/lib/content";
 import { Reveal } from "../Reveal";
-import { Section } from "../Section/Section";
+import { Eyebrow, Section } from "../Section/Section";
 import { ContactForm } from "./ContactForm";
 import classes from "./Contact.module.css";
 
@@ -33,38 +33,45 @@ export function Contact({
     <Section id="contact" cms="Home page › Contact" soft={soft}>
       <div className={classes.grid}>
         <Reveal>
-          {contact.eyebrow && (
-            <Text className={classes.eyebrow}>{contact.eyebrow}</Text>
+          {contact.eyebrow && <Eyebrow>{contact.eyebrow}</Eyebrow>}
+          <Title order={2}>{contact.title}</Title>
+          {contact.text && <Text className={classes.text}>{contact.text}</Text>}
+          {details.length > 0 && (
+            <div className={classes.details}>
+              {details.map((detail) => {
+                const row = (
+                  <>
+                    <div className={classes.icon}>
+                      <detail.icon size={20} stroke={1.75} aria-hidden />
+                    </div>
+                    <div>
+                      <Text size="sm" c="dimmed">
+                        {detail.label}
+                      </Text>
+                      <Text fw={600} className={classes.value}>
+                        {detail.value}
+                      </Text>
+                    </div>
+                  </>
+                );
+                return detail.href ? (
+                  <a
+                    key={detail.label}
+                    href={detail.href}
+                    className={classes.detail}
+                  >
+                    {row}
+                  </a>
+                ) : (
+                  <div key={detail.label} className={classes.detail}>
+                    {row}
+                  </div>
+                );
+              })}
+            </div>
           )}
-          <h2 className={classes.title}>{contact.title}</h2>
-          {contact.text && (
-            <Text c="dimmed" size="lg" mt="md" lh={1.65}>
-              {contact.text}
-            </Text>
-          )}
-          <div className={classes.details}>
-            {details.map((detail) => (
-              <Group key={detail.label} gap="md" wrap="nowrap">
-                <ThemeIcon size={42} radius="md" variant="light">
-                  <detail.icon size={20} />
-                </ThemeIcon>
-                <div>
-                  <Text size="xs" c="dimmed" fw={600} tt="uppercase">
-                    {detail.label}
-                  </Text>
-                  {detail.href ? (
-                    <a href={detail.href} className={classes.detailLink}>
-                      {detail.value}
-                    </a>
-                  ) : (
-                    <Text fw={600}>{detail.value}</Text>
-                  )}
-                </div>
-              </Group>
-            ))}
-          </div>
         </Reveal>
-        <Reveal delay={120} className={classes.formCard}>
+        <Reveal delay={100} className={classes.formCard}>
           <ContactForm
             buttonLabel={contact.buttonLabel}
             successMessage={contact.successMessage}
