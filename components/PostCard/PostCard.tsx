@@ -7,9 +7,11 @@ import classes from "./PostCard.module.css";
 export function PostCard({
   post,
   headingOrder,
+  eager,
 }: {
   post: Post;
   headingOrder: 2 | 3;
+  eager?: boolean;
 }) {
   return (
     <Link href={`/blog/${post.slug}`} className={classes.card}>
@@ -19,6 +21,7 @@ export function PostCard({
             src={post.cover}
             alt=""
             sizes="(max-width: 760px) 100vw, 360px"
+            priority={eager}
           />
         )}
       </div>

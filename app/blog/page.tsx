@@ -20,11 +20,15 @@ export default function BlogPage() {
           </Text>
         </div>
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
-          {posts.map((post, index) => (
-            <Reveal key={post.slug} delay={(index % 3) * 80}>
-              <PostCard post={post} headingOrder={2} />
-            </Reveal>
-          ))}
+          {posts.map((post, index) =>
+            index < 3 ? (
+              <PostCard key={post.slug} post={post} headingOrder={2} eager />
+            ) : (
+              <Reveal key={post.slug} delay={(index % 3) * 80}>
+                <PostCard post={post} headingOrder={2} />
+              </Reveal>
+            ),
+          )}
         </SimpleGrid>
       </Container>
     </section>
