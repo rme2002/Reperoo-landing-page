@@ -1,15 +1,7 @@
-import {
-  Badge,
-  Group,
-  List,
-  ListItem,
-  SimpleGrid,
-  Text,
-  ThemeIcon,
-} from "@mantine/core";
-import { IconCheck } from "@tabler/icons-react";
+import { Badge, Group, SimpleGrid, Text, Title } from "@mantine/core";
 import type { HomeContent } from "@/lib/content";
 import { ButtonLink } from "../ButtonLink";
+import { CheckList } from "../CheckList";
 import { Reveal } from "../Reveal";
 import { Section } from "../Section/Section";
 import classes from "./Pricing.module.css";
@@ -29,76 +21,68 @@ export function Pricing({
   const plans = pricing.plans ?? [];
   return (
     <Section id="pricing" cms="Home page › Pricing" soft={soft} {...pricing}>
-      <SimpleGrid
-        cols={{
-          base: 1,
-          sm: Math.min(plans.length, 2),
-          md: plans.length,
-        }}
-        spacing="lg"
-        maw={plans.length * 420}
-        mx="auto"
-      >
-        {plans.map((plan, index) => {
-          const price = Number(plan.price) || 0;
-          return (
-            <Reveal key={`${index}-${plan.name}`} delay={index * 100}>
-              <div
-                className={classes.plan}
-                data-highlighted={plan.highlighted || undefined}
-              >
-                {plan.badge && (
-                  <Badge className={classes.badge} radius="xl">
-                    {plan.badge}
-                  </Badge>
-                )}
-                <Text fw={800} size="lg">
-                  {plan.name}
-                </Text>
-                <Text c="dimmed" size="sm" mt={4}>
-                  {plan.description}
-                </Text>
-                <Group gap={8} align="baseline" mt="lg">
-                  <span className={classes.price}>
-                    {formatPrice(price, pricing.currency)}
-                  </span>
-                  {plan.priceSuffix && (
-                    <Text c="dimmed" size="sm">
-                      {plan.priceSuffix}
-                    </Text>
-                  )}
-                </Group>
-                {plan.ctaLabel && plan.ctaHref && (
-                  <ButtonLink
-                    href={plan.ctaHref}
-                    fullWidth
-                    mt="xl"
-                    variant={plan.highlighted ? "filled" : "default"}
-                  >
-                    {plan.ctaLabel}
-                  </ButtonLink>
-                )}
-                <List
-                  mt="xl"
-                  spacing="sm"
-                  size="sm"
-                  icon={
-                    <ThemeIcon size={20} radius="xl" variant="light">
-                      <IconCheck size={12} />
-                    </ThemeIcon>
-                  }
+      <div className={classes.stage}>
+        <SimpleGrid
+          cols={{ base: 1, sm: Math.min(plans.length, 2), md: plans.length }}
+          spacing="lg"
+          maw={plans.length * 400}
+          mx="auto"
+        >
+          {plans.map((plan, index) => {
+            const price = Number(plan.price) || 0;
+            return (
+              <Reveal key={`${index}-${plan.name}`} delay={index * 80}>
+                <div
+                  className={classes.plan}
+                  data-highlighted={plan.highlighted || undefined}
                 >
-                  {(plan.features ?? []).map((feature) => (
-                    <ListItem key={feature}>{feature}</ListItem>
-                  ))}
-                </List>
-              </div>
-            </Reveal>
-          );
-        })}
-      </SimpleGrid>
+                  <Group justify="space-between" align="center" wrap="nowrap">
+                    <Title order={3} size="h4" fw={600}>
+                      {plan.name}
+                    </Title>
+                    {plan.badge && (
+                      <Badge
+                        variant="light"
+                        radius="xl"
+                        size="lg"
+                        fz="sm"
+                        tt="none"
+                      >
+                        {plan.badge}
+                      </Badge>
+                    )}
+                  </Group>
+                  <Text c="dimmed" size="sm" mt="xs">
+                    {plan.description}
+                  </Text>
+                  <Group gap="xs" align="baseline" mt="lg">
+                    <span className={classes.price}>
+                      {formatPrice(price, pricing.currency)}
+                    </span>
+                    {plan.priceSuffix && (
+                      <Text c="dimmed" size="sm">
+                        {plan.priceSuffix}
+                      </Text>
+                    )}
+                  </Group>
+                  {plan.ctaLabel && plan.ctaHref && (
+                    <ButtonLink href={plan.ctaHref} fullWidth mt="lg">
+                      {plan.ctaLabel}
+                    </ButtonLink>
+                  )}
+                  {(plan.features ?? []).length > 0 && (
+                    <div className={classes.features}>
+                      <CheckList items={plan.features} />
+                    </div>
+                  )}
+                </div>
+              </Reveal>
+            );
+          })}
+        </SimpleGrid>
+      </div>
       {pricing.note && (
-        <Text c="dimmed" size="sm" ta="center" mt="xl">
+        <Text c="dimmed" size="sm" ta="center" mt="lg">
           {pricing.note}
         </Text>
       )}

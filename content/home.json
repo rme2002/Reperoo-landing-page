@@ -161,7 +161,7 @@
         "description": "Everything Reperoo does, for one price.",
         "price": 3.5,
         "priceSuffix": "one-time",
-        "badge": "Pay once",
+        "badge": "",
         "features": [
           "Unlimited photos and videos",
           "Copy and Move modes",
@@ -169,7 +169,7 @@
           "Restore your purchase on any of your devices",
           "No subscription, no ads"
         ],
-        "highlighted": true,
+        "highlighted": false,
         "ctaLabel": "Join the waitlist",
         "ctaHref": "/#contact"
       }

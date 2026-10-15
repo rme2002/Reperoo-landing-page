@@ -1,28 +1,40 @@
-.plan {
+.stage {
   position: relative;
+  isolation: isolate;
+}
+
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: -20% 0;
+  z-index: -1;
+  background: radial-gradient(closest-side, var(--lp-glow), transparent);
+  pointer-events: none;
+}
+
+.plan {
   height: 100%;
-  padding: 2rem;
-  border: 1px solid var(--mantine-color-default-border);
-  border-radius: var(--mantine-radius-lg);
-  background: var(--lp-surface);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--lp-hairline);
+  background: var(--lp-sheen), var(--lp-surface);
+  box-shadow: var(--lp-elev-2);
 }
 
 .plan[data-highlighted] {
-  border: 2px solid var(--mantine-primary-color-filled);
-  box-shadow: var(--lp-shadow);
-}
-
-.badge {
-  position: absolute;
-  top: 0;
-  right: 1.5rem;
-  transform: translateY(-50%);
+  border-color: var(--mantine-primary-color-filled);
 }
 
 .price {
-  font-size: 2.6rem;
-  font-weight: 800;
+  font-size: var(--mantine-h2-font-size);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.03em;
-  line-height: 1;
+}
+
+.features {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--lp-hairline);
 }
