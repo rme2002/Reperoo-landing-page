@@ -19,21 +19,17 @@ export function Faq({
 }) {
   return (
     <Section id="faq" cms="Home page › FAQ" soft={soft} {...faq}>
-      <Reveal className={classes.wrap}>
-        <Accordion variant="separated" radius="md" chevronPosition="right">
+      <Reveal>
+        <Accordion className={classes.list} chevronPosition="right" order={3}>
           {(faq.items ?? []).map((item, index) => (
-            <AccordionItem
-              key={`faq-${index}`}
-              value={`faq-${index}`}
-              className={classes.item}
-            >
-              <AccordionControl>
-                <Text fw={600}>{item.question}</Text>
+            <AccordionItem key={`faq-${index}`} value={`faq-${index}`}>
+              <AccordionControl className={classes.control}>
+                <Text fw={600} component="span">
+                  {item.question}
+                </Text>
               </AccordionControl>
               <AccordionPanel>
-                <Text c="dimmed" lh={1.65}>
-                  {item.answer}
-                </Text>
+                <Text c="dimmed">{item.answer}</Text>
               </AccordionPanel>
             </AccordionItem>
           ))}
