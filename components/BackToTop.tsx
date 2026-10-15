@@ -5,7 +5,7 @@ import { useWindowScroll } from "@mantine/hooks";
 import { IconArrowUp } from "@tabler/icons-react";
 
 export function BackToTop() {
-  const [scroll, scrollTo] = useWindowScroll();
+  const [scroll] = useWindowScroll();
 
   return (
     <Affix position={{ bottom: 24, right: 24 }} zIndex={150}>
@@ -17,7 +17,10 @@ export function BackToTop() {
             size="xl"
             radius="xl"
             aria-label="Back to top"
-            onClick={() => scrollTo({ y: 0 })}
+            onClick={() => {
+              window.scrollTo({ top: 0 });
+              document.getElementById("main")?.focus({ preventScroll: true });
+            }}
           >
             <IconArrowUp size={20} stroke={1.75} />
           </ActionIcon>
