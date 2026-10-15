@@ -112,6 +112,7 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+.lp-visually-hidden,
 .lp-skip:not(:focus-visible) {
   position: absolute;
   width: 1px;

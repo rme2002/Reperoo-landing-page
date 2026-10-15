@@ -64,3 +64,7 @@ a.detail:hover .value {
     padding: var(--space-6);
   }
 }
+
+.success:focus {
+  outline: none;
+}

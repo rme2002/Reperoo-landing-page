@@ -317,7 +317,7 @@ content:
             component: href
 
       - name: contact
-        label: Contact
+        label: Waitlist
         type: object
         fields:
           - name: enabled
@@ -330,16 +330,40 @@ content:
             type: text
           - name: email
             type: string
+            description: Leave empty until there is a monitored inbox.
           - name: phone
             type: string
           - name: address
             type: string
+          - name: formAction
+            label: Form endpoint URL
+            type: string
+            description: POST URL from your waitlist provider, for example Formspree or Getform. While empty, the live site shows the closed message instead of the form.
+          - name: closedMessage
+            label: Message shown while there is no form endpoint
+            type: text
           - name: buttonLabel
             label: Form button label
             type: string
           - name: successMessage
-            label: Message shown after sending the form
+            label: Message shown after joining
             type: text
+          - name: form
+            label: Form text
+            type: object
+            fields:
+              - name: emailLabel
+                type: string
+              - name: nameLabel
+                type: string
+              - name: messageLabel
+                type: string
+              - name: emailError
+                type: text
+              - name: successTitle
+                type: string
+              - name: errorMessage
+                type: text
 
   - name: posts
     label: Blog posts

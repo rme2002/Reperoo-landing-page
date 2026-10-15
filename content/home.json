@@ -228,10 +228,20 @@
     "eyebrow": "Waitlist",
     "title": "Free up your iPhone without paying for the cloud.",
     "text": "Leave your email and we'll tell you when Reperoo launches. Got a question, or a drive you'd like us to test? Add a message.",
-    "email": "hello@reperoo.example",
+    "email": "",
     "phone": "",
     "address": "",
+    "formAction": "",
+    "closedMessage": "The waitlist opens soon.",
     "buttonLabel": "Join the waitlist",
-    "successMessage": "Thanks, you're on the list. We'll email you when Reperoo is on the App Store."
+    "successMessage": "We'll email you the day Reperoo is on the App Store. Nothing else.",
+    "form": {
+      "emailLabel": "Email",
+      "nameLabel": "Name (optional)",
+      "messageLabel": "Your drive, or a question (optional)",
+      "emailError": "Please enter a valid email address",
+      "successTitle": "You're on the list",
+      "errorMessage": "That didn't go through. Check your connection and try again."
+    }
   }
 }

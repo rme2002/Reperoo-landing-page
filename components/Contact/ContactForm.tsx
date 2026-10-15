@@ -1,102 +1,143 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { Alert, Button, Stack, Textarea, TextInput } from "@mantine/core";
-import { IconCircleCheck, IconSend } from "@tabler/icons-react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { Alert, Button, Stack, Text, Textarea, TextInput } from "@mantine/core";
+import { IconCircleCheck } from "@tabler/icons-react";
+import type { HomeContent } from "@/lib/content";
+import classes from "./Contact.module.css";
 
-type Values = { name: string; email: string; message: string };
-type Errors = Partial<Record<keyof Values, string>>;
+type Contact = HomeContent["contact"];
+type Status = "idle" | "sending" | "sent" | "error";
 
-const EMPTY: Values = { name: "", email: "", message: "" };
+const EMAIL = /^\S+@\S+\.\S+$/;
 
-function validate(values: Values): Errors {
-  const errors: Errors = {};
-  if (!values.name.trim()) errors.name = "Please enter your name";
-  if (!/^\S+@\S+\.\S+$/.test(values.email))
-    errors.email = "Please enter a valid email address";
-  return errors;
-}
+/** Waitlist form; posts to formAction, or simulates success in development. */
+export function ContactForm({ contact }: { contact: Contact }) {
+  const { form, formAction } = contact;
+  const live = Boolean(formAction);
+  const demo = !live && process.env.NODE_ENV !== "production";
+  const formRef = useRef<HTMLFormElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState<string>();
+  const [status, setStatus] = useState<Status>("idle");
 
-/** Validates and simulates sending; there is no backend behind this demo form. */
-export function ContactForm({
-  buttonLabel,
-  successMessage,
-}: {
-  buttonLabel: string;
-  successMessage: string;
-}) {
-  const [values, setValues] = useState(EMPTY);
-  const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  useEffect(() => {
+    if (status === "sent") successRef.current?.focus();
+  }, [status]);
 
-  const field = (name: keyof Values) => ({
-    value: values[name],
-    error: errors[name],
-    onChange: (event: { currentTarget: { value: string } }) => {
-      const value = event.currentTarget.value;
-      setValues((current) => ({ ...current, [name]: value }));
-      setErrors((current) => ({ ...current, [name]: undefined }));
-    },
-  });
+  if (!live && !demo) {
+    return <Text c="dimmed">{contact.closedMessage}</Text>;
+  }
 
-  async function onSubmit(event: FormEvent) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const found = validate(values);
-    setErrors(found);
-    if (Object.keys(found).length > 0) return;
+    const node = event.currentTarget;
+    if (!EMAIL.test(email.trim())) {
+      setEmailError(form.emailError);
+      requestAnimationFrame(() =>
+        node.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus(),
+      );
+      return;
+    }
+    const data = new FormData(node);
+    if (data.get("_gotcha")) {
+      setStatus("sent");
+      return;
+    }
     setStatus("sending");
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    setStatus("sent");
-    setValues(EMPTY);
+    if (!live) {
+      await new Promise((resolve) => setTimeout(resolve, 900));
+      setStatus("sent");
+      return;
+    }
+    try {
+      const response = await fetch(formAction as string, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      setStatus(response.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "sent") {
     return (
       <Alert
+        ref={successRef}
+        tabIndex={-1}
+        className={classes.success}
         variant="light"
         color="green"
         radius="md"
         icon={<IconCircleCheck />}
-        title="You're on the list"
-        withCloseButton
-        onClose={() => setStatus("idle")}
+        title={form.successTitle}
       >
-        {successMessage}
+        {contact.successMessage}
       </Alert>
     );
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate>
+    <form
+      ref={formRef}
+      method="post"
+      action={formAction || undefined}
+      onSubmit={onSubmit}
+      noValidate
+    >
       <Stack gap="md">
         <TextInput
-          label="Name"
-          placeholder="Your name"
+          label={form.emailLabel}
+          name="email"
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          required
+          withAsterisk={false}
           size="md"
-          {...field("name")}
+          value={email}
+          error={emailError}
+          onChange={(event) => {
+            setEmail(event.currentTarget.value);
+            setEmailError(undefined);
+          }}
         />
         <TextInput
-          label="Email"
-          placeholder="you@example.com"
-          type="email"
+          label={form.nameLabel}
+          name="name"
+          autoComplete="name"
           size="md"
-          {...field("email")}
         />
         <Textarea
-          label="Message (optional)"
-          placeholder="Questions, or the drive you use"
-          minRows={4}
+          label={form.messageLabel}
+          name="message"
+          minRows={2}
           autosize
           size="md"
-          {...field("message")}
         />
+        <input
+          type="text"
+          name="_gotcha"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden
+          className="lp-visually-hidden"
+        />
+        {status === "error" && (
+          <Alert color="red" variant="light" role="alert">
+            {form.errorMessage}
+          </Alert>
+        )}
         <Button
           type="submit"
           size="md"
+          fullWidth
           loading={status === "sending"}
-          rightSection={<IconSend size={16} />}
         >
-          {buttonLabel}
+          {contact.buttonLabel}
         </Button>
       </Stack>
     </form>

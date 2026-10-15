@@ -72,10 +72,7 @@ export function Contact({
           )}
         </Reveal>
         <Reveal delay={100} className={classes.formCard}>
-          <ContactForm
-            buttonLabel={contact.buttonLabel}
-            successMessage={contact.successMessage}
-          />
+          <ContactForm contact={contact} />
         </Reveal>
       </div>
     </Section>

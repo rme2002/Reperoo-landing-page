@@ -91,8 +91,18 @@ export type HomeContent = {
     email?: string;
     phone?: string;
     address?: string;
+    formAction?: string;
+    closedMessage?: string;
     buttonLabel: string;
     successMessage: string;
+    form: {
+      emailLabel: string;
+      nameLabel: string;
+      messageLabel: string;
+      emailError: string;
+      successTitle: string;
+      errorMessage: string;
+    };
   };
 };
 
