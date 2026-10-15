@@ -26,6 +26,7 @@
 }
 
 .price {
+  display: inline-flex;
   font-size: var(--mantine-h2-font-size);
   font-weight: 700;
   line-height: 1.1;

@@ -4,6 +4,7 @@ import type { HomeContent } from "@/lib/content";
 import { featureIcon } from "@/lib/icons";
 import { ButtonLink } from "../ButtonLink";
 import { CmsImage } from "../CmsImage";
+import { CountUp } from "../CountUp";
 import { Eyebrow } from "../Section/Section";
 import classes from "./Hero.module.css";
 
@@ -75,7 +76,7 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
                         <Icon size={20} stroke={1.75} />
                       </span>
                     )}
-                    {stat.value}
+                    <CountUp value={stat.value} />
                   </dd>
                 </div>
               );

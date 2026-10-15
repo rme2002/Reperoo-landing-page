@@ -98,6 +98,7 @@ content:
                 component: icon
               - name: value
                 type: string
+                description: A number with an optional unit, like 100%, 0 or €3.50. Simple numbers count up; numbers with thousands separators are shown as typed.
               - name: label
                 type: string
 

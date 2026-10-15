@@ -2,14 +2,10 @@ import { Badge, Group, SimpleGrid, Text, Title } from "@mantine/core";
 import type { HomeContent } from "@/lib/content";
 import { ButtonLink } from "../ButtonLink";
 import { CheckList } from "../CheckList";
+import { CountUp } from "../CountUp";
 import { Reveal } from "../Reveal";
 import { Section } from "../Section/Section";
 import classes from "./Pricing.module.css";
-
-function formatPrice(price: number, currency: string) {
-  if (price === 0) return "Free";
-  return `${currency}${Number.isInteger(price) ? price : price.toFixed(2)}`;
-}
 
 export function Pricing({
   pricing,
@@ -56,9 +52,14 @@ export function Pricing({
                     {plan.description}
                   </Text>
                   <Group gap="xs" align="baseline" mt="lg">
-                    <span className={classes.price}>
-                      {formatPrice(price, pricing.currency)}
-                    </span>
+                    {price === 0 ? (
+                      <span className={classes.price}>Free</span>
+                    ) : (
+                      <CountUp
+                        value={`${pricing.currency}${price.toFixed(Number.isInteger(price) ? 0 : 2)}`}
+                        className={classes.price}
+                      />
+                    )}
                     {plan.priceSuffix && (
                       <Text c="dimmed" size="sm">
                         {plan.priceSuffix}
