@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Alert, Button, Stack, Text, Textarea, TextInput } from "@mantine/core";
 import { IconCircleCheck } from "@tabler/icons-react";
 import type { HomeContent } from "@/lib/content";
+import { SiteLink } from "../SiteLink";
 import classes from "./Contact.module.css";
 
 type Contact = HomeContent["contact"];
@@ -139,6 +140,19 @@ export function ContactForm({ contact }: { contact: Contact }) {
         >
           {contact.buttonLabel}
         </Button>
+        {contact.privacyNote && (
+          <Text size="sm" c="dimmed">
+            {contact.privacyNote}{" "}
+            {contact.privacyLink?.label && contact.privacyLink.href && (
+              <SiteLink
+                href={contact.privacyLink.href}
+                className={classes.inline}
+              >
+                {contact.privacyLink.label}
+              </SiteLink>
+            )}
+          </Text>
+        )}
       </Stack>
     </form>
   );

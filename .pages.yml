@@ -353,6 +353,12 @@ content:
           - name: successMessage
             label: Message shown after joining
             type: text
+          - name: privacyNote
+            label: Privacy note under the button
+            type: text
+          - name: privacyLink
+            label: Privacy link
+            component: link
           - name: form
             label: Form text
             type: object
@@ -402,6 +408,29 @@ content:
       - name: cover
         label: Cover image
         type: image
+      - name: body
+        label: Content
+        type: rich-text
+        options:
+          format: markdown
+
+  - name: privacy
+    label: Privacy policy
+    type: file
+    path: content/privacy.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: description
+        label: Search description
+        type: text
+      - name: updated
+        label: Last updated
+        type: date
+        options:
+          format: yyyy-MM-dd
       - name: body
         label: Content
         type: rich-text

@@ -55,6 +55,12 @@ a.detail:hover .value {
   box-shadow: var(--lp-elev-3);
 }
 
+.inline {
+  color: var(--mantine-color-anchor);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 54em) {
   .grid {
     grid-template-columns: minmax(0, 1fr);

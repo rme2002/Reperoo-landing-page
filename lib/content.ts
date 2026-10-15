@@ -96,6 +96,8 @@ export type HomeContent = {
     closedMessage?: string;
     buttonLabel: string;
     successMessage: string;
+    privacyNote?: string;
+    privacyLink?: Link;
     form: {
       emailLabel: string;
       nameLabel: string;
@@ -128,6 +130,13 @@ function toIsoDate(value: unknown) {
     : String(value ?? "");
 }
 
+/** Markdown to HTML, with root-relative links and images under the site's base path. */
+function renderMarkdown(source: string) {
+  return marked
+    .parse(source, { async: false })
+    .replace(/(src|href)="\/(?!\/)/g, `$1="${withBasePath("/")}`);
+}
+
 function readPost(file: string): Post {
   const { data, content } = matter(
     fs.readFileSync(path.join(POSTS_DIR, file), "utf8"),
@@ -139,9 +148,7 @@ function readPost(file: string): Post {
     author: data.author || undefined,
     excerpt: data.excerpt || undefined,
     cover: data.cover || undefined,
-    html: marked
-      .parse(content, { async: false })
-      .replace(/(src|href)="\/(?!\/)/g, `$1="${withBasePath("/")}`),
+    html: renderMarkdown(content),
   };
 }
 
@@ -156,6 +163,18 @@ export function getPosts(): Post[] {
 
 export function getPost(slug: string) {
   return getPosts().find((post) => post.slug === slug);
+}
+
+export function getPrivacy() {
+  const { data, content } = matter(
+    fs.readFileSync(path.join(process.cwd(), "content/privacy.md"), "utf8"),
+  );
+  return {
+    title: String(data.title || "Privacy"),
+    description: data.description ? String(data.description) : undefined,
+    updated: toIsoDate(data.updated),
+    html: renderMarkdown(content),
+  };
 }
 
 export function formatDate(isoDate: string) {

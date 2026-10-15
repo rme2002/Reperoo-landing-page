@@ -21,6 +21,7 @@ Checks: `npm run typecheck`, `npm run lint`, `npm run build`. The build writes t
 |---|---|---|
 | Home page | `content/home.json` | Every section's text, images, buttons, list items, and a "Show this section" toggle |
 | Blog posts | `content/posts/*.md` | Add, edit and delete posts (rich-text body, cover image, date) |
+| Privacy policy | `content/privacy.md` | The `/privacy` page |
 | Site settings | `content/site.json` | Site name, logo, menu, announcement bar, footer, SEO |
 
 Uploaded images go to `public/images/`. The field definitions are in [`.pages.yml`](.pages.yml).
@@ -45,7 +46,7 @@ PAGES_BASE_PATH=/Reperoo-landing-page npm run build
 ## Connect Pages CMS
 
 1. Go to https://app.pagescms.org, sign in with GitHub and install the Pages CMS GitHub App on this repository.
-2. Open the repository and branch. The sidebar shows *Home page*, *Blog posts* and *Site settings*.
+2. Open the repository and branch. The sidebar shows *Home page*, *Blog posts*, *Privacy policy* and *Site settings*.
 
 Each save in Pages CMS is a commit to `main`, which redeploys the site within a few minutes. Locally, `git pull` and refresh.
 

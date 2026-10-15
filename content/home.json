@@ -236,6 +236,11 @@
     "closedMessage": "The waitlist opens soon.",
     "buttonLabel": "Join the waitlist",
     "successMessage": "We'll email you the day Reperoo is on the App Store. Nothing else.",
+    "privacyNote": "We only use your email to tell you when Reperoo launches, and to answer your question if you ask one.",
+    "privacyLink": {
+      "label": "Privacy policy",
+      "href": "/privacy"
+    },
     "form": {
       "emailLabel": "Email",
       "nameLabel": "Name (optional)",
