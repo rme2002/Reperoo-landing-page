@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Container, Text, Title, Typography } from "@mantine/core";
-import { formatDate, getPrivacy } from "@/lib/content";
+import { formatDate, getPrivacy, site } from "@/lib/content";
 import classes from "../blog/blog.module.css";
 
 const privacy = getPrivacy();
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
         <Title order={1}>{privacy.title}</Title>
         {privacy.updated && (
           <Text c="dimmed" size="sm" mt="sm">
-            Last updated{" "}
+            {site.ui.updatedLabel}{" "}
             <time dateTime={privacy.updated}>
               {formatDate(privacy.updated)}
             </time>

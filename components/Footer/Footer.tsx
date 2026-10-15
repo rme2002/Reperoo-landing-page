@@ -8,7 +8,7 @@ import { SiteLink } from "../SiteLink";
 import classes from "./Footer.module.css";
 
 export function Footer() {
-  const { footer } = site;
+  const { footer, ui } = site;
   const columns = footer.columns ?? [];
   const socials = footer.socials ?? [];
 
@@ -46,7 +46,9 @@ export function Footer() {
                     variant="subtle"
                     color="gray"
                     size="xl"
-                    aria-label={`${site.name} on ${socialLabel(social.platform)} (opens in a new tab)`}
+                    aria-label={ui.socialLabel
+                      .replace("{site}", site.name)
+                      .replace("{platform}", socialLabel(social.platform))}
                   >
                     <Icon size={20} stroke={1.75} />
                   </ActionIcon>

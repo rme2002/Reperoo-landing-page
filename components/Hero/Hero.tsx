@@ -1,6 +1,6 @@
 import { Container, Group, Text, Title } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
-import type { HomeContent } from "@/lib/content";
+import { site, type HomeContent } from "@/lib/content";
 import { featureIcon } from "@/lib/icons";
 import { ButtonLink } from "../ButtonLink";
 import { CmsImage } from "../CmsImage";
@@ -58,8 +58,8 @@ export function Hero({ hero }: { hero: HomeContent["hero"] }) {
               <>
                 <HeroDemo alt={hero.imageAlt} />
                 <MotionToggle
-                  pauseLabel="Pause animations"
-                  playLabel="Play animations"
+                  pauseLabel={site.ui.pauseMotion}
+                  playLabel={site.ui.playMotion}
                 />
               </>
             ) : (

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Burger, Container, Drawer, Group, Stack } from "@mantine/core";
 import { useDisclosure, useWindowScroll } from "@mantine/hooks";
-import type { Link as NavLink } from "@/lib/content";
+import type { Link as NavLink, SiteContent } from "@/lib/content";
 import { BrandMark } from "../BrandMark";
 import { ButtonLink } from "../ButtonLink";
 import { SiteLink } from "../SiteLink";
@@ -14,9 +14,10 @@ type HeaderProps = {
   logo?: string;
   navigation: NavLink[];
   cta?: NavLink;
+  ui: SiteContent["ui"];
 };
 
-export function Header({ name, logo, navigation, cta }: HeaderProps) {
+export function Header({ name, logo, navigation, cta, ui }: HeaderProps) {
   const [opened, { close, toggle }] = useDisclosure(false);
   const [scroll] = useWindowScroll();
 
@@ -39,7 +40,11 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
       data-cms="Site settings › Menu"
     >
       <Container size="lg" className={classes.inner}>
-        <Link href="/" className={classes.brand} aria-label={`${name} home`}>
+        <Link
+          href="/"
+          className={classes.brand}
+          aria-label={ui.homeLabel.replace("{site}", name)}
+        >
           <BrandMark
             name={name}
             logo={logo}
@@ -49,7 +54,7 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
           <span>{name}</span>
         </Link>
 
-        <nav className={classes.desktopNav} aria-label="Main">
+        <nav className={classes.desktopNav} aria-label={ui.mainNav}>
           {links(classes.link)}
         </nav>
 
@@ -67,7 +72,7 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
             opened={opened}
             size="sm"
             onClick={toggle}
-            aria-label="Menu"
+            aria-label={ui.menu}
             aria-expanded={opened}
             className={classes.burger}
           />
@@ -79,11 +84,11 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
         onClose={close}
         position="right"
         size="xs"
-        title="Menu"
+        title={ui.menu}
         padding="lg"
-        closeButtonProps={{ "aria-label": "Close menu", size: "xl" }}
+        closeButtonProps={{ "aria-label": ui.closeMenu, size: "xl" }}
       >
-        <nav aria-label="Main">
+        <nav aria-label={ui.mainNav}>
           <Stack gap={0}>{links(classes.drawerLink)}</Stack>
         </nav>
         {cta?.label && (

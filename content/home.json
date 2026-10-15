@@ -88,6 +88,7 @@
     "enabled": true,
     "eyebrow": "How it works",
     "title": "Three taps from full phone to free space",
+    "stepLabel": "Step {n}",
     "items": [
       {
         "title": "Plug in your SSD",
@@ -155,6 +156,7 @@
     "title": "Buy it once. It's yours.",
     "subtitle": "No subscription, no ads, no tiers. One purchase unlocks everything, on your Apple ID, for good.",
     "currency": "€",
+    "freeLabel": "Free",
     "note": "",
     "plans": [
       {
@@ -252,6 +254,11 @@
     "email": "",
     "phone": "",
     "address": "",
+    "detailLabels": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Office"
+    },
     "formAction": "",
     "closedMessage": "The waitlist opens soon.",
     "buttonLabel": "Join the waitlist",

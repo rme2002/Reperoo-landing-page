@@ -6,12 +6,20 @@ import { IconArrowRight } from "@tabler/icons-react";
 import { SiteLink } from "../SiteLink";
 import classes from "./AnnouncementBar.module.css";
 
-type AnnouncementBarProps = { text: string; linkLabel?: string; href?: string };
+type AnnouncementBarProps = {
+  text: string;
+  linkLabel?: string;
+  href?: string;
+  label: string;
+  dismissLabel: string;
+};
 
 export function AnnouncementBar({
   text,
   linkLabel,
   href,
+  label,
+  dismissLabel,
 }: AnnouncementBarProps) {
   const [dismissed, setDismissed] = useLocalStorage({
     key: "announcement-dismissed",
@@ -23,7 +31,7 @@ export function AnnouncementBar({
   return (
     <section
       className={classes.bar}
-      aria-label="Announcement"
+      aria-label={label}
       data-cms="Site settings › Announcement bar"
     >
       <p className={classes.content}>
@@ -40,7 +48,7 @@ export function AnnouncementBar({
         iconSize={16}
         variant="subtle"
         className={classes.close}
-        aria-label="Dismiss announcement"
+        aria-label={dismissLabel}
         onClick={() => {
           document.documentElement.setAttribute(
             "data-announcement-dismissed",

@@ -63,5 +63,19 @@
     "text": "It may have moved. Head home, or join the waitlist to hear when Reperoo launches.",
     "primary": { "label": "Back to home", "href": "/" },
     "secondary": { "label": "Join the waitlist", "href": "/#contact" }
+  },
+  "ui": {
+    "skipToContent": "Skip to content",
+    "mainNav": "Main",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "homeLabel": "{site} home",
+    "announcement": "Announcement",
+    "dismissAnnouncement": "Dismiss announcement",
+    "backToTop": "Back to top",
+    "pauseMotion": "Pause animations",
+    "playMotion": "Play animations",
+    "socialLabel": "{site} on {platform} (opens in a new tab)",
+    "updatedLabel": "Last updated"
   }
 }

@@ -158,6 +158,10 @@ content:
             component: eyebrow
           - name: title
             type: string
+          - name: stepLabel
+            label: Step label
+            type: string
+            description: "{n} becomes the step number."
           - name: items
             label: Steps
             type: object
@@ -224,6 +228,9 @@ content:
             component: subtitle
           - name: currency
             type: string
+          - name: freeLabel
+            label: Text shown for a price of 0
+            type: string
           - name: note
             label: Small print under the plans
             type: text
@@ -241,7 +248,7 @@ content:
                 type: text
               - name: price
                 type: number
-                description: 0 shows "Free".
+                description: 0 shows the free label.
               - name: priceSuffix
                 label: Text after the price
                 type: string
@@ -344,6 +351,16 @@ content:
             type: string
           - name: address
             type: string
+          - name: detailLabels
+            label: Contact detail labels
+            type: object
+            fields:
+              - name: email
+                type: string
+              - name: phone
+                type: string
+              - name: address
+                type: string
           - name: formAction
             label: Form endpoint URL
             type: string
@@ -583,3 +600,39 @@ content:
           - name: secondary
             label: Secondary button
             component: link
+      - name: ui
+        label: Interface text
+        type: object
+        description: Screen reader labels and small interface text.
+        fields:
+          - name: skipToContent
+            type: string
+          - name: mainNav
+            label: Main menu name
+            type: string
+          - name: menu
+            type: string
+          - name: closeMenu
+            type: string
+          - name: homeLabel
+            label: Logo link label
+            type: string
+            description: "{site} is filled in."
+          - name: announcement
+            label: Announcement bar name
+            type: string
+          - name: dismissAnnouncement
+            type: string
+          - name: backToTop
+            type: string
+          - name: pauseMotion
+            type: string
+          - name: playMotion
+            type: string
+          - name: socialLabel
+            label: Social link label
+            type: string
+            description: "{site} and {platform} are filled in."
+          - name: updatedLabel
+            label: "\"Last updated\" label"
+            type: string

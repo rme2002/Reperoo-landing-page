@@ -13,20 +13,21 @@ export function Contact({
   contact: HomeContent["contact"];
   soft?: boolean;
 }) {
+  const labels = contact.detailLabels;
   const details = [
     {
       icon: IconMail,
-      label: "Email",
+      label: labels.email,
       value: contact.email,
       href: `mailto:${contact.email}`,
     },
     {
       icon: IconPhone,
-      label: "Phone",
+      label: labels.phone,
       value: contact.phone,
       href: `tel:${contact.phone?.replace(/\s/g, "")}`,
     },
-    { icon: IconMapPin, label: "Office", value: contact.address },
+    { icon: IconMapPin, label: labels.address, value: contact.address },
   ].filter((detail) => detail.value);
 
   return (

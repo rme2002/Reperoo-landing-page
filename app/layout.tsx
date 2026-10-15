@@ -13,7 +13,7 @@ import { Providers } from "@/components/Providers";
 import { site } from "@/lib/content";
 import { withBasePath } from "@/lib/paths";
 
-const { announcement } = site;
+const { announcement, ui } = site;
 const showAnnouncement = announcement.enabled && Boolean(announcement.text);
 
 // Runs before paint: flags JS for the reveal styles (undone if hydration never
@@ -64,13 +64,15 @@ export default function RootLayout({
         <Providers>
           <HydrationFlag />
           <a href="#main" className="lp-skip">
-            Skip to content
+            {ui.skipToContent}
           </a>
           {showAnnouncement && (
             <AnnouncementBar
               text={announcement.text}
               linkLabel={announcement.linkLabel}
               href={announcement.href}
+              label={ui.announcement}
+              dismissLabel={ui.dismissAnnouncement}
             />
           )}
           <Header
@@ -78,12 +80,13 @@ export default function RootLayout({
             logo={site.logo}
             navigation={site.navigation}
             cta={site.navCta}
+            ui={ui}
           />
           <main id="main" tabIndex={-1}>
             {children}
           </main>
           <Footer />
-          <BackToTop />
+          <BackToTop label={ui.backToTop} />
           <CmsHintsToggle />
         </Providers>
       </body>

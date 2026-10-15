@@ -29,7 +29,12 @@ export function Showcase({
             data-single={!item.image || undefined}
           >
             <Reveal className={classes.copy}>
-              <Eyebrow>Step {index + 1}</Eyebrow>
+              <Eyebrow>
+                {(showcase.stepLabel || "Step {n}").replace(
+                  "{n}",
+                  String(index + 1),
+                )}
+              </Eyebrow>
               <Title order={3}>{item.title}</Title>
               <Text c="dimmed" mt="sm">
                 {item.text}

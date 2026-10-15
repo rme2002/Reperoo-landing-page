@@ -48,6 +48,20 @@ export type SiteContent = {
     primary?: Link;
     secondary?: Link;
   };
+  ui: {
+    skipToContent: string;
+    mainNav: string;
+    menu: string;
+    closeMenu: string;
+    homeLabel: string;
+    announcement: string;
+    dismissAnnouncement: string;
+    backToTop: string;
+    pauseMotion: string;
+    playMotion: string;
+    socialLabel: string;
+    updatedLabel: string;
+  };
 };
 
 type Section = {
@@ -74,6 +88,7 @@ export type HomeContent = {
     items: { icon: string; title: string; description: string }[];
   };
   showcase: Section & {
+    stepLabel: string;
     items: {
       title: string;
       text: string;
@@ -87,6 +102,7 @@ export type HomeContent = {
   };
   pricing: Section & {
     currency: string;
+    freeLabel?: string;
     note?: string;
     plans: {
       name: string;
@@ -110,6 +126,7 @@ export type HomeContent = {
     email?: string;
     phone?: string;
     address?: string;
+    detailLabels: { email: string; phone: string; address: string };
     formAction?: string;
     closedMessage?: string;
     buttonLabel: string;

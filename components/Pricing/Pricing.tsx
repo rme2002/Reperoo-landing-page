@@ -53,7 +53,9 @@ export function Pricing({
                   </Text>
                   <Group gap="xs" align="baseline" mt="lg">
                     {price === 0 ? (
-                      <span className={classes.price}>Free</span>
+                      <span className={classes.price}>
+                        {pricing.freeLabel || "Free"}
+                      </span>
                     ) : (
                       <CountUp
                         value={`${pricing.currency}${price.toFixed(Number.isInteger(price) ? 0 : 2)}`}
