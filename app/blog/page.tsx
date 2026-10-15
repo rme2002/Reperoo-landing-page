@@ -24,7 +24,7 @@ export default function BlogPage() {
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
           {posts.map((post, index) => (
             <Reveal key={post.slug} delay={(index % 3) * 100}>
-              <PostCard post={post} />
+              <PostCard post={post} headingOrder={2} />
             </Reveal>
           ))}
         </SimpleGrid>

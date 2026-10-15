@@ -27,7 +27,7 @@ export function LatestPosts({
       <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
         {posts.map((post, index) => (
           <Reveal key={post.slug} delay={index * 100}>
-            <PostCard post={post} />
+            <PostCard post={post} headingOrder={3} />
           </Reveal>
         ))}
       </SimpleGrid>
