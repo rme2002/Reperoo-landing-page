@@ -4,8 +4,7 @@ import {
   type MantineColorsTuple,
 } from "@mantine/core";
 
-// Reperoo "Warm Mahogany": shade 6 is the light accent, shade 4 the dark accent,
-// and one step up from each is its pressed state.
+// Shade 4 is the accent.
 const mahogany: MantineColorsTuple = [
   "#faf2ef",
   "#f3e0d9",
@@ -54,7 +53,7 @@ export function buildTheme(primaryColor: string) {
       primaryColor in colors || primaryColor in DEFAULT_THEME.colors
         ? primaryColor
         : "mahogany",
-    primaryShade: { light: 6, dark: 4 },
+    primaryShade: 4,
     autoContrast: true,
     luminanceThreshold: 0.25,
     black: "#1c1614",

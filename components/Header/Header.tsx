@@ -1,18 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import {
-  ActionIcon,
-  Burger,
-  Button,
-  Container,
-  Drawer,
-  Group,
-  Stack,
-  useMantineColorScheme,
-} from "@mantine/core";
+import { Burger, Button, Container, Drawer, Group, Stack } from "@mantine/core";
 import { useDisclosure, useWindowScroll } from "@mantine/hooks";
-import { IconMoon, IconSun } from "@tabler/icons-react";
 import type { Link as NavLink } from "@/lib/content";
 import { BrandMark } from "../BrandMark";
 import classes from "./Header.module.css";
@@ -27,7 +17,6 @@ type HeaderProps = {
 export function Header({ name, logo, navigation, cta }: HeaderProps) {
   const [opened, { close, toggle }] = useDisclosure(false);
   const [scroll] = useWindowScroll();
-  const { toggleColorScheme } = useMantineColorScheme();
 
   const links = navigation.map((item) => (
     <Link
@@ -62,16 +51,6 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
         </nav>
 
         <Group gap="xs" wrap="nowrap">
-          <ActionIcon
-            variant="default"
-            size="lg"
-            radius="md"
-            onClick={toggleColorScheme}
-            aria-label="Toggle colour scheme"
-          >
-            <IconSun size={18} className={classes.sun} />
-            <IconMoon size={18} className={classes.moon} />
-          </ActionIcon>
           {cta?.label && (
             <Button
               component={Link}

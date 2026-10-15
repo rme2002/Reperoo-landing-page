@@ -74,8 +74,3 @@
     display: block;
   }
 }
-
-:global([data-mantine-color-scheme="light"]) .sun,
-:global([data-mantine-color-scheme="dark"]) .moon {
-  display: none;
-}

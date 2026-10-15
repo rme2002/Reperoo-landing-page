@@ -2,7 +2,7 @@ import "@mantine/core/styles.css";
 import "./globals.css";
 import React from "react";
 import type { Metadata, Viewport } from "next";
-import { MantineProvider, mantineHtmlProps } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import { AnnouncementBar } from "@/components/AnnouncementBar/AnnouncementBar";
 import { BackToTop } from "@/components/BackToTop";
 import { CmsHintsToggle } from "@/components/CmsHints/CmsHintsToggle";
@@ -12,15 +12,6 @@ import { site } from "@/lib/content";
 import { withBasePath } from "@/lib/paths";
 import { buildTheme } from "../theme";
 
-const colorSchemeScript = `
-try {
-  var _colorScheme = window.localStorage.getItem("mantine-color-scheme-value");
-  var colorScheme = _colorScheme === "light" || _colorScheme === "dark" || _colorScheme === "auto" ? _colorScheme : "auto";
-  var computedColorScheme = colorScheme !== "auto" ? colorScheme : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  document.documentElement.setAttribute("data-mantine-color-scheme", computedColorScheme);
-} catch (e) {}
-`;
-
 export const metadata: Metadata = {
   title: { default: site.seo.title, template: `%s · ${site.name}` },
   description: site.seo.description,
@@ -29,6 +20,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  colorScheme: "dark",
+  themeColor: "#17110f",
 };
 
 export default function RootLayout({
@@ -39,12 +32,8 @@ export default function RootLayout({
   const { announcement } = site;
 
   return (
-    <html lang="en" {...mantineHtmlProps}>
+    <html lang="en" data-mantine-color-scheme="dark" suppressHydrationWarning>
       <head>
-        <script
-          data-mantine-script
-          dangerouslySetInnerHTML={{ __html: colorSchemeScript }}
-        />
         <noscript>
           <style>
             {
@@ -57,7 +46,7 @@ export default function RootLayout({
       <body>
         <MantineProvider
           theme={buildTheme(site.primaryColor)}
-          defaultColorScheme="auto"
+          forceColorScheme="dark"
         >
           {announcement.enabled && announcement.text && (
             <AnnouncementBar
