@@ -553,3 +553,17 @@ content:
           - name: allPostsLabel
             label: "\"All posts\" link label"
             type: string
+      - name: notFound
+        label: Page not found (404)
+        type: object
+        fields:
+          - name: title
+            type: string
+          - name: text
+            type: text
+          - name: primary
+            label: Primary button
+            component: link
+          - name: secondary
+            label: Secondary button
+            component: link

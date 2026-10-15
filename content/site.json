@@ -50,5 +50,11 @@
     "description": "Guides to copying and moving iPhone photos to an SSD or hard drive: drive formats, verification and pricing.",
     "emptyText": "No posts yet. Check back soon.",
     "allPostsLabel": "All posts"
+  },
+  "notFound": {
+    "title": "This page doesn't exist",
+    "text": "It may have moved. Head home, or join the waitlist to hear when Reperoo launches.",
+    "primary": { "label": "Back to home", "href": "/" },
+    "secondary": { "label": "Join the waitlist", "href": "/#contact" }
   }
 }

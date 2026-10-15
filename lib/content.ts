@@ -33,6 +33,12 @@ export type SiteContent = {
     emptyText: string;
     allPostsLabel: string;
   };
+  notFound: {
+    title: string;
+    text?: string;
+    primary?: Link;
+    secondary?: Link;
+  };
 };
 
 type Section = {
