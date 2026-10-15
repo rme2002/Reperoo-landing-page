@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { CloseButton } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import { IconArrowRight } from "@tabler/icons-react";
+import { SiteLink } from "../SiteLink";
 import classes from "./AnnouncementBar.module.css";
 
 type AnnouncementBarProps = { text: string; linkLabel?: string; href?: string };
@@ -25,9 +25,9 @@ export function AnnouncementBar({
       <p className={classes.content}>
         <span>{text}</span>
         {linkLabel && href && (
-          <Link href={href} className={classes.link}>
+          <SiteLink href={href} className={classes.link}>
             {linkLabel} <IconArrowRight size={14} />
-          </Link>
+          </SiteLink>
         )}
       </p>
       <CloseButton

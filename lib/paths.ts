@@ -4,3 +4,13 @@ export function withBasePath(path: string) {
     ? `${process.env.BASE_PATH ?? ""}${path}`
     : path;
 }
+
+/** Makes a bare CMS fragment such as "#contact" point at the home page. */
+export function toHref(href: string) {
+  return href.startsWith("#") ? `/${href}` : href;
+}
+
+/** True for internal links that jump to a section, which need a native anchor. */
+export function isFragment(href: string) {
+  return href.startsWith("/") && href.includes("#");
+}

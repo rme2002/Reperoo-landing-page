@@ -5,15 +5,18 @@ media:
   rename: safe
 
 components:
+  href:
+    label: Link
+    type: string
+    description: A page path (/blog), a section on the home page (/#pricing) or a full URL.
+
   link:
     type: object
     fields:
       - name: label
         type: string
       - name: href
-        label: Link
-        type: string
-        description: A page path (/blog), a section on the home page (#pricing) or a full URL.
+        component: href
 
 content:
   - name: home
@@ -241,7 +244,7 @@ content:
                 type: string
               - name: ctaHref
                 label: Button link
-                type: string
+                component: href
 
       - name: faq
         label: FAQ
@@ -302,7 +305,7 @@ content:
             type: string
           - name: buttonHref
             label: Button link
-            type: string
+            component: href
 
       - name: contact
         label: Contact
@@ -402,8 +405,7 @@ content:
           - name: linkLabel
             type: string
           - name: href
-            label: Link
-            type: string
+            component: href
       - name: navigation
         label: Menu
         type: object
@@ -416,8 +418,7 @@ content:
           - name: label
             type: string
           - name: href
-            label: Link
-            type: string
+            component: href
       - name: navCta
         label: Menu button
         component: link
@@ -444,8 +445,7 @@ content:
                   - name: label
                     type: string
                   - name: href
-                    label: Link
-                    type: string
+                    component: href
           - name: socials
             label: Social media
             type: object

@@ -3,6 +3,7 @@ import { ActionIcon, Container, Group, Text } from "@mantine/core";
 import { site } from "@/lib/content";
 import { socialIcon } from "@/lib/icons";
 import { BrandMark } from "../BrandMark";
+import { SiteLink } from "../SiteLink";
 import classes from "./Footer.module.css";
 
 export function Footer() {
@@ -55,9 +56,9 @@ export function Footer() {
             <ul className={classes.links}>
               {(column.links ?? []).map((link, linkIndex) => (
                 <li key={`${linkIndex}-${link.href}`}>
-                  <Link href={link.href} className={classes.link}>
+                  <SiteLink href={link.href} className={classes.link}>
                     {link.label}
-                  </Link>
+                  </SiteLink>
                 </li>
               ))}
             </ul>

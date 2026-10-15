@@ -5,6 +5,7 @@ import { Burger, Button, Container, Drawer, Group, Stack } from "@mantine/core";
 import { useDisclosure, useWindowScroll } from "@mantine/hooks";
 import type { Link as NavLink } from "@/lib/content";
 import { BrandMark } from "../BrandMark";
+import { SiteLink } from "../SiteLink";
 import classes from "./Header.module.css";
 
 type HeaderProps = {
@@ -19,14 +20,14 @@ export function Header({ name, logo, navigation, cta }: HeaderProps) {
   const [scroll] = useWindowScroll();
 
   const links = navigation.map((item, index) => (
-    <Link
+    <SiteLink
       key={`${index}-${item.href}`}
       href={item.href}
       className={classes.link}
       onClick={close}
     >
       {item.label}
-    </Link>
+    </SiteLink>
   ));
 
   return (
