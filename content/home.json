@@ -1,6 +1,6 @@
 {
   "hero": {
-    "eyebrow": "For iPhone · Coming to the App Store",
+    "eyebrow": "For iPhone · Coming to the App Store Test",
     "title": "Your photos and videos, straight to your SSD or hard drive.",
     "subtitle": "Plug the drive into your iPhone, pick what to copy, and Reperoo puts the originals on it. Choose Move and every file is checked three times before anything is deleted. No computer, no account, nothing uploaded.",
     "primaryCta": {
@@ -88,7 +88,6 @@
     "enabled": true,
     "eyebrow": "How it works",
     "title": "Three steps from full phone to free space",
-    "subtitle": "",
     "stepLabel": "Step {n}",
     "items": [
       {
@@ -130,7 +129,6 @@
     "enabled": true,
     "eyebrow": "Who it's for",
     "title": "Made for people who shoot a lot",
-    "subtitle": "",
     "items": [
       {
         "quote": "My storage is full again and I don't want to pay for iCloud every month just to keep my photos.",
@@ -166,7 +164,6 @@
         "description": "Every feature, no account needed.",
         "price": 3.5,
         "priceSuffix": "one-time",
-        "badge": "",
         "features": [
           "Unlimited photos and videos",
           "Copy and Move modes",
@@ -184,7 +181,6 @@
     "enabled": true,
     "eyebrow": "FAQ",
     "title": "Questions, answered",
-    "subtitle": "",
     "items": [
       {
         "question": "Which iPhones does Reperoo work with?",
@@ -240,7 +236,6 @@
     "enabled": true,
     "eyebrow": "Blog",
     "title": "Guides and updates",
-    "subtitle": "",
     "count": 3
   },
   "cta": {
@@ -255,15 +250,11 @@
     "eyebrow": "Waitlist",
     "title": "Free up your iPhone without paying for the cloud.",
     "text": "Leave your email and we'll tell you the day Reperoo is on the App Store. Using a particular SSD or hard drive? Tell us which and we'll test it before launch.",
-    "email": "",
-    "phone": "",
-    "address": "",
     "detailLabels": {
       "email": "Email",
       "phone": "Phone",
       "address": "Office"
     },
-    "formAction": "",
     "closedMessage": "The waitlist opens soon.",
     "buttonLabel": "Join the waitlist",
     "successMessage": "We'll email you the day Reperoo is on the App Store. Nothing else.",
