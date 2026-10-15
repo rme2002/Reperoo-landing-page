@@ -158,6 +158,8 @@ content:
             component: eyebrow
           - name: title
             type: string
+          - name: subtitle
+            component: subtitle
           - name: stepLabel
             label: Step label
             type: string
@@ -193,6 +195,8 @@ content:
             component: eyebrow
           - name: title
             type: string
+          - name: subtitle
+            component: subtitle
           - name: items
             label: Personas
             type: object
@@ -280,6 +284,8 @@ content:
             component: eyebrow
           - name: title
             type: string
+          - name: subtitle
+            component: subtitle
           - name: items
             label: Questions
             type: object
@@ -307,6 +313,8 @@ content:
             component: eyebrow
           - name: title
             type: string
+          - name: subtitle
+            component: subtitle
           - name: count
             label: Number of posts to show
             type: number

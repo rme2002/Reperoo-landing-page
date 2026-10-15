@@ -88,6 +88,7 @@
     "enabled": true,
     "eyebrow": "How it works",
     "title": "Three taps from full phone to free space",
+    "subtitle": "",
     "stepLabel": "Step {n}",
     "items": [
       {
@@ -129,6 +130,7 @@
     "enabled": true,
     "eyebrow": "Who it's for",
     "title": "Made for people who shoot a lot",
+    "subtitle": "",
     "items": [
       {
         "quote": "My storage is full again and I don't want to pay for iCloud every month just to keep my photos.",
@@ -182,6 +184,7 @@
     "enabled": true,
     "eyebrow": "FAQ",
     "title": "Questions, answered",
+    "subtitle": "",
     "items": [
       {
         "question": "Which iPhones does Reperoo work with?",
@@ -237,6 +240,7 @@
     "enabled": true,
     "eyebrow": "Blog",
     "title": "Guides and updates",
+    "subtitle": "",
     "count": 3
   },
   "cta": {
