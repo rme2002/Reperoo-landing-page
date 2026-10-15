@@ -10,7 +10,7 @@ import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
 import { site } from "@/lib/content";
 import { withBasePath } from "@/lib/paths";
-import { buildTheme } from "../theme";
+import { theme } from "../theme";
 
 export const metadata: Metadata = {
   title: { default: site.seo.title, template: `%s · ${site.name}` },
@@ -44,10 +44,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href={withBasePath("/favicon.svg")} />
       </head>
       <body>
-        <MantineProvider
-          theme={buildTheme(site.primaryColor)}
-          forceColorScheme="dark"
-        >
+        <MantineProvider theme={theme} forceColorScheme="dark">
           {announcement.enabled && announcement.text && (
             <AnnouncementBar
               text={announcement.text}

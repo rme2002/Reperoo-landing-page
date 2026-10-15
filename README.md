@@ -21,7 +21,7 @@ Checks: `npm run typecheck`, `npm run lint`, `npm run build`. The build writes t
 |---|---|---|
 | Home page | `content/home.json` | Every section's text, images, buttons, list items, and a "Show this section" toggle |
 | Blog posts | `content/posts/*.md` | Add, edit and delete posts (rich-text body, cover image, date) |
-| Site settings | `content/site.json` | Site name, logo, brand colour, menu, announcement bar, footer, SEO |
+| Site settings | `content/site.json` | Site name, logo, menu, announcement bar, footer, SEO |
 
 Uploaded images go to `public/images/`. The field definitions are in [`.pages.yml`](.pages.yml).
 

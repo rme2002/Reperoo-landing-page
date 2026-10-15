@@ -382,22 +382,6 @@ content:
       - name: logo
         type: image
         description: Optional square mark shown next to the site name. The first letter is shown when empty.
-      - name: primaryColor
-        label: Brand colour
-        type: select
-        options:
-          values:
-            - { name: mahogany, label: Mahogany (Reperoo) }
-            - { name: indigo, label: Indigo }
-            - { name: blue, label: Blue }
-            - { name: cyan, label: Cyan }
-            - { name: teal, label: Teal }
-            - { name: green, label: Green }
-            - { name: orange, label: Orange }
-            - { name: red, label: Red }
-            - { name: pink, label: Pink }
-            - { name: grape, label: Grape }
-            - { name: violet, label: Violet }
       - name: seo
         label: Search engines
         type: object

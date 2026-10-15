@@ -11,7 +11,6 @@ export type Link = { label: string; href: string };
 export type SiteContent = {
   name: string;
   logo?: string;
-  primaryColor: string;
   seo: { title: string; description: string };
   announcement: {
     enabled: boolean;
