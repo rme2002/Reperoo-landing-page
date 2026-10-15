@@ -187,11 +187,19 @@
       },
       {
         "question": "Which drives can I use?",
-        "answer": "Any USB-C drive your iPhone can write to in the Files app: SSDs, hard drives and flash drives. exFAT works best; if your drive is already exFAT, there's nothing to do. FAT32 works, but files over 4 GB (long 4K videos) fail and stay on your iPhone. Drives formatted for Windows (NTFS) are read-only on iPhone, so reformat those as exFAT. Some hard drives need more power than an iPhone can supply; use one with its own power adapter or a powered USB-C hub."
+        "answer": "Any USB-C drive your iPhone can write to in the Files app: SSDs, hard drives and flash drives. exFAT works best; if your drive is already exFAT, there's nothing to do. FAT32 works, but files over 4 GB (long 4K videos) fail and stay on your iPhone. Drives formatted for Windows (NTFS) are read-only on iPhone, so reformat those as exFAT. Some hard drives need more power than an iPhone can supply; use one with its own power adapter or a powered USB-C hub.",
+        "link": {
+          "label": "How to format your drive",
+          "href": "/blog/how-to-format-your-drive-as-exfat"
+        }
       },
       {
         "question": "How does Move keep my photos safe?",
-        "answer": "Each file is hashed while it's written, read back from the drive and hashed again, then checked once more right before anything is deleted. Only files that pass all three are deleted, through iOS's own confirmation, and they stay in Recently Deleted for 30 days. The space comes back once they leave Recently Deleted, so empty it in Photos if you need the room now."
+        "answer": "Each file is hashed while it's written, read back from the drive and hashed again, then checked once more right before anything is deleted. Only files that pass all three are deleted, through iOS's own confirmation, and they stay in Recently Deleted for 30 days. The space comes back once they leave Recently Deleted, so empty it in Photos if you need the room now.",
+        "link": {
+          "label": "Why every file is checked three times",
+          "href": "/blog/why-reperoo-checks-every-file-three-times"
+        }
       },
       {
         "question": "I use iCloud Photos. What happens when I Move?",

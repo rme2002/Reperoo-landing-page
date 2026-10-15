@@ -285,6 +285,10 @@ content:
                 type: string
               - name: answer
                 type: text
+              - name: link
+                label: Read more link
+                component: link
+                description: Optional link shown under the answer.
 
       - name: blog
         label: Latest blog posts

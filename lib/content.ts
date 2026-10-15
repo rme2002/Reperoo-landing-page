@@ -78,7 +78,9 @@ export type HomeContent = {
       ctaHref: string;
     }[];
   };
-  faq: Section & { items: { question: string; answer: string }[] };
+  faq: Section & {
+    items: { question: string; answer: string; link?: Link }[];
+  };
   blog: Section & { count: number };
   cta: {
     enabled: boolean;
